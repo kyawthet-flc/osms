@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: pyidaungsu;
+            font-size: 12.5pt;
+            line-height: 22px;
+            text-align: justify;
+        }
+
+        page[size="A4"] {
+            background: white;
+            width: 21cm;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 0.5cm;
+            border: 1.25cm solid #000;
+        }
+
+        @media print {
+
+            body,
+            page[size="A4"] {
+                margin: 0;
+                box-shadow: 0;
+                border: none;
+            }
+        }
+
+        @page {
+            background: url('images/certificate_mdevice_bg.jpg') no-repeat 0 0;
+            background-image-resize: 6;
+            /*background-image-resize: 6;*/
+            header: Header;
+            footer: html_footer;
+        }
+
+
+
+        .align-left {
+            text-align: left;
+        }
+
+        .condition-list-page td {
+
+            padding-left: 8px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-bold {
+            font-weight: bold;
+        }
+
+        .union-title-text {
+            font-size: 16px;
+            padding-top: 7px;
+            line-height: 27px;
+            color: #000;
+            height: 90px;
+            margin-bottom: 0;
+        }
+
+        .union-title-text span {
+            font-family: pyidaungsu;
+            display: block;
+        }
+
+        .union-of-myanmar-text {
+            /*line-height: 23px;*/
+        }
+
+        h3 {
+            font-size: 16pt;
+            margin: 0;
+        }
+
+        .body p {
+            margin: 0
+        }
+
+        .clear {
+            clear: both;
+        }
+
+
+        .main-header {
+            margin-bottom: 10px;
+        }
+
+        .certificate-header {
+            margin-bottom: 10px;
+        }
+
+        .third-header {
+            text-indent: 50px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .forth-header-table {
+            margin-bottom: 10px;
+            margin-left: 50px;
+            page-break-inside: avoid;
+            page-break-after: always;
+        }
+
+        .forth-header-table table tr td {
+            line-height: 40px;
+        }
+
+        /*-----------------------------------------------------
+                            .on-behalf-of-dg-section
+        ------------------------------------------------------*/
+        .on-behalf-of-dg-section {
+            min-height: 200px;
+            height: auto;
+
+            width: 100%;
+            padding: 0;
+        }
+
+        .on-behalf-of-dg-section .text-wrapper {
+            text-align: center;
+
+            width: 400px;
+            float: right;
+            margin-top: 40px;
+            line-height: 26px;
+        }
+
+        /*-----------------------------------------------------
+                           .office-letter-section
+        ----------------------------------------------------- */
+        .office-letter-section {
+            min-height: 400px;
+            height: auto;
+            background-color: transparent;
+            position: fixed;
+            bottom: 40px;
+            width: 100%;
+            padding: 0;
+        }
+
+        .office-letter-section .text-wrapper {
+            text-align: left;
+
+            width: 100%;
+            float: left;
+            margin-top: 10px;
+            line-height: 26px;
+        }
+
+        /*-----------------------------------------------------
+                      .back-signer-section
+        ------------------------------------------------------*/
+        .back-signer-section {
+            min-height: 400px;
+            height: auto;
+
+            width: 100%;
+            padding: 0;
+        }
+
+        .back-signer-section .text-wrapper {
+            text-align: center;
+
+            width: 400px;
+            float: right;
+            margin-top: 60px;
+            line-height: 26px;
+        }
+
+        .total-certificate-count-wrapper {
+            height: 20px;
+            width: 120px;
+            padding-top: 27px;
+            padding-left: 3px;
+
+            display: inline-block;
+            /*margin: 15px auto 0;*/
+            float: left;
+            font-size: 13px;
+            vertical-align: middle;
+        }
+
+        .qr-code-wrapper {
+            height: 50px;
+            width: 70px;
+            display: inline-block;
+            /*margin: 15px auto 0;*/
+            float: right;
+            padding: 4px;
+        }
+
+        .no-border td {
+            border: none !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <page size="A4">
+        <div class="main-header">
+            <table cellspacing="0" borderspacing="0" width="100%" style="margin-bottom: 0;">
+                <tr>
+                    <td class="text-center padding10" width="10%">
+                        <img src="images/mohs_logo.png" alt="logo" width='125px' height='125px'>
+                    </td>
+                    <td class="text-center" width="80%">
+                        <h3>
+                            <p>GOVERNMENT OF THE REPUBLIC OF THE UNION OF MYANMAR</p>
+                            <p>MINISTRY OF HEALTH</p>
+                            <p>MYANMAR FOOD AND DRUG BOARD OF AUTHORITY</p>
+                        </h3>
+                    </td>
+                    <td class="text-center padding10" width="10%">
+                        <img src="images/FDAlogo.png" alt="logo" width='110px' height='110px'>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="third-header text-bold text-center">
+            DRUG MANUFACTURER LICENCE
+        </div>
+
+        <!-- ----------------------------------------------------
+                           .forth-header-table
+        ----------------------------------------------------- -->
+        <div class="forth-header-table">
+            <p>
+                In accordance with Section (5) Sub-section (h) of the National Drug Law, the Drug Manufacturer Licence
+                has been granted to
+            </p>
+            <div class="text-center"><b>###APPLICANT_NAME###</b></div>
+            <p>
+                To manufacturer the drugs as specified in the attached schedule under supervision of expert staff,
+            </p>
+            <div class="text-center"><b>###MANUFACTURER###</b></div>
+            <p>
+                at the premises
+            </p>
+            <div class="text-center"><b>###ADDRESS###</b></div>
+            <p>
+                The licence shall be valid until <b>###EXPIRE_DATE###</b> unliess earlier suspended or revoked.
+            </p>
+            <br><br>
+            <table class="header-table" width="100%" cellpadding="0" cellspacing="0" border="1px">
+                <tr>
+                    <th style="width:25%;"></th>
+                    <th style="width:75%;"></th>
+                </tr>
+                <tr class="header-td-12-wrap">
+                    <td class="child-header-td-1">Licence No</td>
+                    <td class="child-header-td-2">###CERTIFICATE###</td>
+                </tr>
+                <tr class="header-td-13-wrap">
+                    <td class="child-header-td-1">Date of Issue</td>
+                    <td class="child-header-td-2">###ISSUE_DATE###</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ----------------------------------------------------
+                           .next page
+        ----------------------------------------------------- -->
+
+        <div class="condition-list-page">
+            ###CONDITION###
+        </div>
+
+        <!-- ----------------------------------------------------
+                           .office-letter-section
+        ----------------------------------------------------- -->
+        <div class="office-letter-section">
+
+            <!-- <div class="total-certificate-count-wrapper">
+                ###TOTAL_COUNT###-###TOTAL_RENEWAL_COUNT###
+            </div> -->
+            <div class="qr-code-wrapper">###QR_CODE###</div>
+        </div>
+
+    </page>
+
+    <htmlpagefooter name="footer" style="display:none;">
+        <div style="text-align: center;display: block;font-size: 13px;background-color: transparent;height: 20px;">
+            {PAGENO}/{nbpg}</div>
+    </htmlpagefooter>
+
+</body>
+
+</html>

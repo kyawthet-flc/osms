@@ -1,0 +1,112 @@
+p {
+    color: black;
+}
+.admin-info{
+    display: inline-block;
+    margin: 7px;
+}
+
+.page-loader-div {
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 50px;
+}
+/*.nav-return-case-noti {*/
+/*.nav-new-noti {*/
+.nav-noti {
+    background: red;
+    padding: 0px 9px;
+    border-radius: 13%;
+    color: white;
+}
+
+.nav-approved-noti {
+    background: green;
+    padding: 0px 9px;
+    border-radius: 13%;
+    color: white;
+}
+
+.nav-rejcted-noti {
+    background: brown;
+    padding: 0px 9px;
+    border-radius: 13%;
+    color: white;
+}
+
+.nav-incomplete-noti {
+    background: #999b33;
+    padding: 0px 9px;
+    border-radius: 13%;
+    color: white;
+}
+
+.nav-auto-cancelled-noti {
+    background: #999b33;
+    padding: 0px 9px;
+    border-radius: 13%;
+    color: white;
+}
+
+.navbar .nav li {
+    padding: 0 3px;
+}
+
+.sidebar-active {
+    background: transparent;
+    color: #333 !important;
+}
+
+.right-panel header.header {
+    padding-left: 45px;
+}
+
+aside.left-panel {
+    padding: 0px;
+}
+
+.background {
+    background: white;
+    padding: 25px;
+}
+
+.card-header {
+    background: paleturquoise;
+}
+
+table {
+table-layout: fixed;
+}
+
+table tr, table tr td {
+    overflow: wrap;
+    word-wrap: break-word;
+}
+
+.dataTables_empty {
+    display: none !important;
+}
+
+.menu-title {
+    text-transform: capitalize !important;
+}
+
+aside.left-panel {
+    background: #272c33;
+    display: table-cell;
+    height: 100vh;
+    min-height: 100%;
+    padding: 0 25px;
+    vertical-align: top;
+    width: 310px;
+    -webkit-transition: width .3s ease;
+    transition: width .3s ease;
+}
+
+.nav-item {
+    font-size: 14px !important;
+}

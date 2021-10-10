@@ -1,0 +1,331 @@
+body {
+    font-family:pyidaungsu;
+    font-size: 12.5pt;
+    line-height: 22px;
+    text-align: justify;
+}
+page[size="A4"] {
+    background: white;
+    width: 21cm;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    border: 1.25cm solid #000;
+}
+@media print {
+    body, page[size="A4"] {
+        margin: 0;
+        box-shadow: 0;
+        border: none;
+    }
+}
+
+@page {
+    background: url('images/certificate_mdevice_bg.jpg') no-repeat 0 0;
+    background-image-resize: 6;
+    /*background-image-resize: 6;*/
+    header: html_pageheader;
+    footer: html_footer;
+}
+
+@page :first {
+    footer: html_first_footer;
+    margin-top: 40mm;
+}
+
+
+@page page-landscape {
+    size: landscape;
+    header: html_pageheader;
+    footer: html_footer;
+    margin-top: 45mm;
+}
+
+div.landscape { 
+    page: page-landscape; 
+}
+
+.align-left {
+    text-align: left;
+}
+
+.product-list-page td {
+    padding-left: 8px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.union-title-text {
+    font-size: 16px;  
+    padding-top: 7px;
+    line-height: 27px;
+    color: #000;
+    height: 90px;
+    margin-bottom: 0;
+}
+
+.union-title-text span {
+    font-family: pyidaungsu;
+    display: block; 
+}
+
+h3 {
+    font-size: 16pt;
+    margin: 0;
+}
+
+.body p {
+    margin:0
+}
+
+.clear {
+    clear:both;
+}
+
+
+
+
+/*---------------------------------------------
+        Product List Table
+------------------------------------------------*/
+.product-list-page {
+    border-collapse:collapse;
+    vertical-align:top;
+    width:100%;
+}
+
+.product-list-td-header .header-td-1 {
+    border:1px solid #000;
+    width: 25px;
+}
+
+.product-list-td-header .header-td-2 {
+    border:1px solid #000;
+    border-left: none;
+    width: 200px;
+}
+
+.product-list-td-header .header-td-3 {
+    border:1px solid #000;
+    border-left: none;
+}
+
+.product-list-td-header .header-td-4 {
+    border:1px solid #000;
+    border-left: none;
+}
+
+/* .product-list-page td{
+    vertical-align:top;
+    padding: 7px 5px;
+    font-size: 1rem;
+}*/
+.product-list-td-body-wrapper {
+    overflow: wrap;            
+}
+
+.vertical-align-top {
+    vertical-align: top;
+}
+
+.product-list-td-body-wrapper tr .body-td-1 {
+    border:1px solid #000;
+    border-top: none;
+}
+
+.product-list-td-body-wrapper tr .body-td-2 {
+    border:1px solid #000;
+    border-left: none;
+    border-top: none;         
+}
+
+.product-list-td-body-wrapper tr .body-td-3 {
+    border:1px solid #000;
+    border-left: none;
+    border-top: none;       
+}
+
+.product-list-td-body-wrapper tr .body-td-4 {
+    border:1px solid #000;
+    border-left: none;
+    border-top: none;        
+}
+
+.product-list-td-body-wrapper tr .total-notified-item-td {
+    border:1px solid #000;
+    padding-top: 3px;
+    border-top: none;
+}
+ /*-----------------------------------------------------
+              .back-signer-section
+------------------------------------------------------*/
+
+.back-signer-section {
+    min-height: 400px;
+    height: auto;
+    
+    width: 100%;
+    padding: 0;
+}
+
+.back-signer-section .text-wrapper {
+    text-align: center;
+    
+    width: 400px;
+    float: right;
+    margin-top: 60px;
+    line-height: 26px;
+}
+
+.total-certificate-count-wrapper {
+    height: 20px;
+    width: 120px;
+    padding-top: 27px;
+    padding-left: 3px;
+    
+    display: inline-block;
+    /*margin: 15px auto 0;*/
+    float: left;
+    font-size: 13px;
+    vertical-align: middle;     
+}
+
+.qr-code-wrapper {
+    height:50px;
+    width: 70px;
+    display: inline-block;
+    /*margin: 15px auto 0;*/
+    float: right; 
+    padding: 4px;
+}
+
+.no-border  td {
+    border: none !important;
+}
+
+
+
+
+/* 
+Footer
+*/
+.footer {
+    height:50px;width: 100%;display: block;padding: 0;text-align: right;background-color: transparent;margin-bottom: 2px;
+}
+.footer-qr-code {
+    float: right;height:50px;width:70px;
+}
+
+.footer-page-no{
+    text-align: center;display: block;font-size: 13px;background-color: transparent;height: 20px;
+}
+.first-footer {
+    height:50px;
+    width: 100%;
+    display: block;
+    padding: 0;
+    text-align: right;
+    background-color: transparent;
+    margin-bottom: 2px;
+}
+.first-footer-qr-code {
+    float: right;
+    height:50px;
+    width:70px;
+}
+.first-footer-page-no {
+    text-align: center;
+    display: block;
+    font-size: 13px;
+    background-color: transparent;
+    height: 20px;
+}
+
+.certificate-issue-date-wrapper {
+    background-color: transparent;
+    padding: 0;
+    height: auto;
+    margin-top: 15px;
+}
+
+.certificate-issue-date-wrapper .certificate-no {
+    background-color: transparent;
+    width: 50%;
+    float: left;
+    text-align: left;
+}
+
+.certificate-issue-date-wrapper .date-of-issue {
+    background-color: transparent;
+    width: 50%;
+    float: right;
+    text-align: right;
+}
+
+.in-accordance-text {
+    background-color: transparent;
+    padding: 0;
+    min-height: 200px;
+    height: auto;
+    margin-top: 40px    
+}
+
+.storage-condition {
+    background-color: transparent;
+    padding: 0;
+    min-height: 200px;
+    height: auto;
+    margin-top: 40px;
+}
+
+.certificate-valid-text {
+    padding: 0;
+    min-height: 200px;
+    height: auto;
+}
+
+.list-certificate-issue-date-wrapper {
+    background-color: transparent;
+    padding: 0;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.list-certificate-no {
+    background-color: transparent;
+    width: 50%;
+    float: left;
+    text-align: left;
+}
+.list-validity-wrapper {
+    background-color: transparent;
+    width: 50%;
+    float: right;
+    text-align: right;
+    text-indent: 235px;
+}
+.list-valid-until {
+    background-color: transparent;
+    width: 100%;
+    text-align: left;
+}
+.list-date-of-issue {
+    background-color: transparent;
+    width: 100%;
+    text-align: left;
+    text-indent: 235px;
+}

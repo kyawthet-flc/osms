@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: pyidaungsu;
+            font-size: 12.5pt;
+            line-height: 22px;
+            text-align: justify;
+        }
+
+        page[size="A4"] {
+            background: white;
+            width: 21cm;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 0.5cm;
+            border: 1.25cm solid #000;
+        }
+
+        @media print {
+
+            body,
+            page[size="A4"] {
+                margin: 0;
+                box-shadow: 0;
+                border: none;
+            }
+        }
+
+        @page {
+            background: url('images/certificate_mdevice_bg.jpg') no-repeat 0 0;
+            background-image-resize: 6;
+            /*background-image-resize: 6;*/
+            header: Header;
+            footer: html_footer;
+        }
+
+
+
+        .align-left {
+            text-align: left;
+        }
+
+        .condition-list-page td {
+
+            padding-left: 8px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-bold {
+            font-weight: bold;
+        }
+
+        .union-title-text {
+            font-size: 16px;
+            padding-top: 7px;
+            line-height: 27px;
+            color: #000;
+            height: 90px;
+            margin-bottom: 0;
+        }
+
+        .union-title-text span {
+            font-family: pyidaungsu;
+            display: block;
+        }
+
+        .union-of-myanmar-text {
+            /*line-height: 23px;*/
+        }
+
+        h3 {
+            font-size: 16pt;
+            margin: 0;
+        }
+
+        .body p {
+            margin: 0
+        }
+
+        .clear {
+            clear: both;
+        }
+
+
+        .main-header {
+            margin-bottom: 10px;
+        }
+
+        .third-header {
+            text-indent: 50px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .forth-header-table {
+            line-height: 30px;
+            text-align: justify;
+            margin-bottom: 10px;
+            margin-left: 50px;
+        }
+
+        .content-date {
+            margin-left: 390px;
+        }
+
+        .remark-one {
+            margin-left: 50px;
+            float: left;
+            width: 100px;
+        }
+
+        .remark-two {
+            text-align: justify;
+        }
+
+        .sing {
+            margin-top: 50px;
+            text-align: justify;
+            margin-left: 350px;
+        }
+
+        /*-----------------------------------------------------
+                           .office-letter-section
+        ----------------------------------------------------- */
+        .office-letter-section {
+            min-height: 400px;
+            height: auto;
+            background-color: transparent;
+            position: fixed;
+            bottom: 40px;
+            width: 100%;
+            padding: 0;
+        }
+
+        .office-letter-section .text-wrapper {
+            text-align: left;
+
+            width: 100%;
+            float: left;
+            margin-top: 10px;
+            line-height: 26px;
+        }
+
+        /*-----------------------------------------------------
+                      .back-signer-section
+        ------------------------------------------------------*/
+        .back-signer-section {
+            min-height: 400px;
+            height: auto;
+
+            width: 100%;
+            padding: 0;
+        }
+
+        .back-signer-section .text-wrapper {
+            text-align: center;
+
+            width: 400px;
+            float: right;
+            margin-top: 60px;
+            line-height: 26px;
+        }
+
+        .total-certificate-count-wrapper {
+            height: 20px;
+            width: 120px;
+            padding-top: 27px;
+            padding-left: 3px;
+
+            display: inline-block;
+            /*margin: 15px auto 0;*/
+            float: left;
+            font-size: 13px;
+            vertical-align: middle;
+        }
+
+        .qr-code-wrapper {
+            height: 50px;
+            width: 70px;
+            display: inline-block;
+            /*margin: 15px auto 0;*/
+            float: right;
+            padding: 4px;
+        }
+
+        .no-border td {
+            border: none !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <page size="A4">
+        <div class="main-header">
+            <table cellspacing="0" borderspacing="0" width="100%" style="margin-bottom: 0;">
+                <tr>
+                    <td class="text-center padding10" width="10%">
+                        <img src="images/mohs_logo.png" alt="logo" width='125px' height='125px'>
+                    </td>
+                    <td class="text-center" width="80%">
+                        <h3>
+                            <p>ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်အစိုးရ</p>
+                            <p>ကျန်းမာရေးဝန်ကြီးဌာန</p>
+                            <p>အစားအသောက်နှင့်ဆေးဝါးကွပ်ကဲရေးဦးစီးဌာန</p>
+                        </h3>
+                    </td>
+                    <td class="text-center padding10" width="10%">
+                        <img src="images/FDAlogo.png" alt="logo" width='110px' height='110px'>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="content-date">
+            <p>စာအမှတ်၊အစဆ/(ဆဝ) ###APPLICATION_NO### </p>
+            <p>ရက်စွဲ၊ ###ISSUE_DATE###</p>
+        </div>
+
+        <div class="third-header text-bold text-center">
+            ဆေးဝါးထုတ်လုပ်ခွင့်လိုင်စင်(ယာယီ) ထောက်ခံချက်
+        </div>
+
+        <!-- ----------------------------------------------------
+                           .forth-header-table
+        ----------------------------------------------------- -->
+        <div class="forth-header-table">
+            <p>
+                ၁။ ###MANUFACTURER### ၏ ဆေးဝါးထုတ်လုပ်သူလိုင်စင်လျှောက်ထားခြင်းနှင့်ပတ်သတ်၍
+                ဆေးဝါးထုတ်လုပ်သည့်
+                စက်ရုံသို့ ဆေးဝါးထုပ်လုပ်မှုနည်းစနစ်တို့ကို အစားအသောက်နှင့်ဆေးဝါးကွပ်ကွဲရေးဦးစီးဌာနမှ
+                တာဝန််ရှိသူများနှင့်အဖွဲ့မှ ကွင်းဆင်းစစ်ဆေးခဲ့ပါသည်။ ကွင်းဆင်းစစ်ဆေးစဉ် ပြုပြင်ရန်အချက်များကိုလည်း
+                ကုမ္ပဏီအနေဖြင့်ပြင်ဆင်ပြီးစီးကြောင်းကို ဓါတ်ပုံမှတ်တမ်းဖြင့် တင်ပြလာပါသည်။
+            </p>
+            <p>
+                ၂။ သို့ဖြစ်ပါ၍ အဆိုပါဆေးဝါးစက်ရုံအနေဖြင့် ဆေးဝါးမှတ်ပုံတင်ခြင်း ဆက်လက်ဆောင်ရွက်နိုင်ရန်
+                ယာယီဆေးဝါးထုတ်လုပ်ခွင့်လိုင်စင်ကို သက်တမ်းကာလ (၆) လသတ်မှတ်၍ ထောက်ခံအပ်ပါသည်။
+            </p>
+            <p>
+                *သက်တမ်းကုန်ဆုံးရက်- ( <b> ###EXPIRE_DATE### </b> )
+            </p>
+            <div class="remark-one">မှတ်ချက်။</div>
+            <div class="remark-two">ယာယီဆေးဝါးထုတ်လုပ်ခွင့်လိုင်စင် ထုတ်ပေးထားသည့် ကာလအတွင်း ###MANUFACTURER###
+                အနေဖြင့်လုပ်ငန်း
+                ဆောင်ရွက်မှု အခြေအနေများကို လစဉ်အစားအသောက်နှင့် ဆေးဝါးကွပ်ကဲရေးဦးစီးဌာနသို့
+                ပုံမှန်တင်ပြရန်။
+            </div>
+            <div class="sing">
+                ညွှန်ကြားရေးမှူးချုပ်(ကိုယ်စား) <br>
+                ၊ ညွှန်ကြားရေးမှူး
+            </div>
+        </div>
+
+        <!-- ----------------------------------------------------
+                           .office-letter-section
+        ----------------------------------------------------- -->
+        <div class="office-letter-section">
+
+            <!-- <div class="total-certificate-count-wrapper">
+                ###TOTAL_COUNT###-###TOTAL_RENEWAL_COUNT###
+            </div> -->
+            <div class="qr-code-wrapper">###QR_CODE###</div>
+        </div>
+
+    </page>
+
+    <htmlpagefooter name="footer" style="display:none;">
+        <div style="text-align: center;display: block;font-size: 13px;background-color: transparent;height: 20px;">
+            {PAGENO}/{nbpg}</div>
+    </htmlpagefooter>
+
+</body>
+
+</html>

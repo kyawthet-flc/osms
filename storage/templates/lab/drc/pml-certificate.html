@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+
+<htmlpageheader name="header">
+    <div class="header-container">
+        <div class="header-first-row">
+            <div class="first-row-left-section">
+                <div class="fda-logo-wrapper"><img src="images/FDAlogo.png" alt="logo" style="width: 1.2in;" /></div>
+                <div class="cover-letter-title">
+                    <span class="letter-title-1">##SUB_LAB_TITLE##</span><br>
+                    <!-- <span class="letter-title-2">National Quality Control  Analytical Laboratories – Nay Pyi Taw</span><br> -->
+                    <span class="letter-title-3">Department of Food and Drug Administration, Ministry of Health</span><br>
+                    <span class="letter-title-4">Pyi Gyi Zayyar Road, Zay Yar Theiddhi Quarter, Zabuthiri Township</span><br>
+                    <span class="letter-title-5">Nay Pyi Taw, Myanmar</span>
+                </div>
+            </div>
+            <div class="first-row-right-section">
+                <div class="form-no">Form Number:<br/>##FORM_NO##</div>
+                <div class="version-no">Version Number:<br/> ##VERSION_NO##</div>
+            </div>
+        </div>
+        <div class="header-second-row">
+            <div class="certificate-title">Title: Certificate of Analysis</div>
+            <div class="effective-date">Effective Date: ##EFFECTIVE_DATE##</div>
+            <div class="sop-number">SOP Number:<br/>##SOP_NO##</div>
+        </div><!-- End of header-second-row  -->
+    </div>
+</htmlpageheader>
+ 
+<page size="A4">
+    <div class="pml-sample-result-wrapper">
+        <table class="sample-result" border="1"> 
+            <tr>
+                <td style="width: 355px;"><b>Sample ID –</b> ##SAMPLE_ID##</td>
+                <td style="width: 355px;"><b>Laboratory No. –</b> ##LABORATORY_NO##</td>
+            </tr>
+            <tr>
+                <td style="width: 355px;"><b>Application No. –</b> ##CUSTOMER_REFERENCE_NO##</td>
+                <td style="width: 355px;"><b>Result Released Date –</b> ##RESULT_RELEASED_DATE##</td>
+            </tr>
+            <tr>
+                <td style="width: 355px;"><b>Sample Received Date –</b> ##SAMPLE_RECEIVED_DATE##</td>
+                <td style="width: 355px;"><b>Date of Analysis –</b> ##DATE_OF_ANALYSIS##</td>
+            </tr>
+            <tr>
+                <td style="width: 355px;"><b>Brand  Name –</b>##BRAND_NAME##</td> 
+                <td rowspan="2" style="width: 355px;height: auto;">
+                    <b>Batch NO –</b> ##BATCH_NO##<br/>
+                    <b>Mfg. Date –</b> ##MFG_DATE##<br/>
+                    <b>Exp. Date  –</b> ##EXP_DATE##</p>
+                </td> 
+            </tr>  
+            <tr>
+                <td  style="width: 355px;"><b>Generic Name –</b> ##GENERIC_NAME##</td> 
+            </tr>
+            <tr>
+                <td  style="width: 355px;">
+                    <b>Manufacturer (Name and Address) –</b><br/>##MANUFACTURER_NAME_ADDRESS##
+                </td>
+                <td  style="width: 355px;">
+                    <b>Customer (Name and Address) –</b><br/>##CUSTOMER_NAME_ADDRESS##
+                </td>
+            </tr>
+             
+        </table>
+     
+        <table autosize="1" class="pml-test-form1n2" border="1"> 
+            <thead>
+                <tr>
+                    <th class="text-center bold pml-test-form1n2-1">No.</th>
+                    <th class="text-center bold pml-test-form1n2-2">Test Parameter</th>
+                    <th class="text-center bold pml-test-form1n2-3">Result</th>
+                    <th class="text-center bold pml-test-form1n2-4">Specification (limit)</th>
+                    <th class="text-center bold pml-test-form1n2-5">Reference Method</th>
+                    <th class="text-center bold pml-test-form1n2-6">Conclusion</th>
+                </tr>
+            </thead>
+            <tbody>##FIRST_SECOND_RESULTS##</tbody>
+        </table>
+
+        <table autosize="1" class="pml-test-form3" border="1"> 
+            <thead>
+                <tr>
+                    <th class="text-center bold pml-test-form3-1">No.</th>
+                    <th class="text-center bold pml-test-form3-2">Microbial Limit Test</th>
+                    <th class="text-center bold pml-test-form3-3">Method</th>
+                    <th class="text-center bold pml-test-form3-4">Result</th>
+                    <th class="text-center bold pml-test-form3-5">Specification</th>
+                    <th class="text-center bold pml-test-form3-6">Remark</th>
+                </tr>
+            </thead>
+            <tbody>##THIRD_RESULTS##</tbody>
+        </table>
+
+        <table autosize="1" class="pml-test-form4" border="1"> 
+            <thead>
+                <tr>
+                    <th class="text-center bold pml-test-form4-1">No.</th>
+                    <th class="text-center bold pml-test-form4-2">Medium and Incubation<br/>Temperature</th>
+                    <th class="text-center bold pml-test-form4-3">Test Orgnaisnms</th>
+                    <th class="text-center bold pml-test-form4-4">Exposure time</th>
+                    <th class="text-center bold pml-test-form4-5">Growth Presence/Absence</th>
+                    <!-- <th class="text-center bold sample-result-index" style="width: 128px;font-size: 14px;padding-top: 3px;">Remark</th> -->
+                </tr>
+            </thead>
+            <tbody>##FOURTH_RESULTS##</tbody>
+        </table>
+
+        <table autosize="1" class="pml-result-display" border="1"> 
+            <tr>
+                <td class="text-left pml-lab-result-index">Result Status:</td>
+                <td class="text-left pml-lab-result-value">
+                    <span><img class="pml-sat-label" src="##SAT_CHECKED##" />&nbsp;##SAT##</span>
+                    &nbsp;&nbsp;
+                    <span><img class="pml-unsat-label"src="##UNSAT_CHECKED###" />&nbsp;##UNSAT##</span>
+                    &nbsp;&nbsp;
+                    <span><img class="pml-nocomment-label" src="##NOCOMMENT_CHECKED##" />&nbsp;##NOCOMMENT##</span>
+                </td>
+            </tr>
+        </table>
+
+        <table autosize="1" class="pml-sample-result-detail" border="1"> 
+            <tr>
+                <td class="text-left pml-lab-analyst-text">
+                    <br/><br/>Analyst<br/>(Name and sign)
+                </td>
+                <td class="text-left pml-lab-officer-text">
+                    <br/><br/>Laboratory  Officer/Technical Manager<br/>(Name and sign)
+                </td>
+            </tr>
+        </table>
+
+        <div class="final-remark">
+            <p class="pml-final-remark-index"><b>Final Remark</b></p>
+            <p class="pml-final-remark-value">##FINAL_REMARK##</p>
+            <p class="text-right pml-final-remark-signature">Signature/ Date<br/>Deputy Director (Lab)</p>
+        </div>
+
+        <div class="certificate-remark">
+            <p class="pml-certificate-remark-1">Remark: This Certificate of Analysis is only related to the received and tested samples by the Laboratory, Nay Pyi Taw.Results cannot be extrapolated to other samples or batches.</p>
+            <p class="pml-certificate-remark-2">This certificate is NOT to be used for advertising and promotional purpose.</p>
+            <!-- <p class="certificate-remark-3" style="margin: 0;line-height: 15px;">* This test method is not under the scope of ISO/IEC 17025:2017 Accreditation of Pharmaceutical Chemistry Laboratory, Nay Pyi Taw.</p> -->
+        </div>
+    </div>
+</page>
+
+<htmlpagefooter name="footer">
+    <div class="pml-footer-wrapper">
+      <h3 class="text-center">CONFIDENTIAL</h3>
+      <table class="no-border pml-footer-sample-verion">
+          <tr>
+            <td width="250px" class="no-border text-left">##SAMPLE_ID##</td>
+            <td width="250px" class="text-center no-border">{PAGENO}/{nbpg}</td>
+            <td width="270px" class="text-right no-border">##LABORATORY_NO##</td>
+          </tr>
+      </table>
+    </div>
+</htmlpagefooter>
+</body>
+</html>

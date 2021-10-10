@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: pyidaungsu;
+            font-size: 12.5pt;
+            line-height: 22px;
+            text-align: justify;
+        }
+
+        page[size="A4"] {
+            background: white;
+            width: 21cm;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 0.5cm;
+            border: 1.25cm solid #000;
+        }
+
+        @media print {
+
+            body,
+            page[size="A4"] {
+                margin: 0;
+                box-shadow: 0;
+                border: none;
+            }
+        }
+
+        @page {
+            background: url('images/certificate_mdevice_bg.jpg') no-repeat 0 0;
+            background-image-resize: 6;
+            /*background-image-resize: 6;*/
+            header: html_pageheader;
+            footer: html_footer;
+        }
+
+
+
+        .align-left {
+            text-align: left;
+        }
+
+        .product-list-page td {
+
+            padding-left: 8px;
+        }
+
+
+        /* .ql-align-right {
+            text-align: right;
+        }
+
+        .ql-align-left {
+            text-align: left;
+        }
+
+        .ql-align-justify {
+            text-align: justify;
+        }
+
+        .ql-align-center {
+            text-align: center;
+        } */
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-bold {
+            font-weight: bold;
+        }
+
+        .union-title-text {
+            font-size: 16px;
+            padding-top: 7px;
+            line-height: 27px;
+            color: #000;
+            height: 90px;
+            margin-bottom: 0;
+        }
+
+        .union-title-text span {
+            font-family: pyidaungsu;
+            display: block;
+        }
+
+        .union-of-myanmar-text {
+            /*line-height: 23px;*/
+        }
+
+        h3 {
+            font-size: 16pt;
+            margin: 0;
+        }
+
+        .body p {
+            margin: 0
+        }
+
+        .clear {
+            clear: both;
+        }
+
+
+        .main-header {
+            margin-bottom: 10px;
+        }
+
+        .certificate-header {
+            margin-bottom: 10px;
+        }
+
+        .third-header {
+            text-indent: 50px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .forth-header-table {
+            text-indent: 50px;
+            margin-bottom: 10px;
+            margin-left: 50px;
+        }
+
+        .forth-header-table table tr td {
+            line-height: 40px;
+        }
+
+        /*-------------------------------------------------
+                    .content-header-table
+        --------------------------------------------------*/
+        .content-header-table {
+            height: 605px;
+            max-height: 605px;
+            /*height: auto;*/
+            padding: 15px 0 0;
+
+        }
+
+        /*.border-bottom {
+            border-bottom: 1px solid #000;
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            font-weight: bold;
+        }*/
+
+        .to-respective-person {
+
+            margin-top: 3px;
+            margin-bottom: 14px;
+        }
+
+        .content-table {
+            margin-top: 15px;
+            padding: 0 23px;
+            overflow: wrap;
+            min-height: 500px;
+            height: auto;
+        }
+
+        .content-table tr td {
+            line-height: 30px;
+            overflow: wrap;
+            font-size: 1rem;
+            vertical-align: top;
+        }
+
+        .recommand-text {
+            font-size: 17px;
+            margin: 0;
+        }
+
+        .remark-text {
+
+            font-size: 1rem;
+            margin: 10px 0 0;
+        }
+
+        /*-----------------------------------------------------
+                            .on-behalf-of-dg-section
+        ------------------------------------------------------*/
+        .on-behalf-of-dg-section {
+            min-height: 200px;
+            height: auto;
+
+            width: 100%;
+            padding: 0;
+        }
+
+        .on-behalf-of-dg-section .text-wrapper {
+            text-align: center;
+
+            width: 400px;
+            float: right;
+            margin-top: 40px;
+            line-height: 26px;
+        }
+
+        /*-----------------------------------------------------
+                           .office-letter-section
+        ----------------------------------------------------- */
+        .office-letter-section {
+            min-height: 400px;
+            height: auto;
+            background-color: transparent;
+            position: fixed;
+            bottom: 40px;
+            width: 100%;
+            padding: 0;
+        }
+
+        .office-letter-section .text-wrapper {
+            text-align: left;
+
+            width: 100%;
+            float: left;
+            margin-top: 10px;
+            line-height: 26px;
+        }
+
+        /*---------------------------------------------
+                Product List Table
+        ------------------------------------------------*/
+        .product-list-page {
+            border-collapse: collapse;
+            vertical-align: top;
+            width: 100%;
+        }
+
+        .product-list-td-header .header-td-1 {
+            border: 1px solid #000;
+            width: 25px;
+        }
+
+        .product-list-td-header .header-td-2 {
+            border: 1px solid #000;
+            border-left: none;
+            width: 200px;
+        }
+
+        .product-list-td-header .header-td-3 {
+            border: 1px solid #000;
+            border-left: none;
+        }
+
+        .product-list-td-header .header-td-4 {
+            border: 1px solid #000;
+            border-left: none;
+        }
+
+        /* .product-list-page td{
+            vertical-align:top;
+            padding: 7px 5px;
+            font-size: 1rem;
+        }*/
+        .product-list-td-body-wrapper {
+            overflow: wrap;
+        }
+
+        .vertical-align-top {
+            vertical-align: top;
+        }
+
+        .product-list-td-body-wrapper tr .body-td-1 {
+            border: 1px solid #000;
+            border-top: none;
+        }
+
+        .product-list-td-body-wrapper tr .body-td-2 {
+            border: 1px solid #000;
+            border-left: none;
+            border-top: none;
+        }
+
+        .product-list-td-body-wrapper tr .body-td-3 {
+            border: 1px solid #000;
+            border-left: none;
+            border-top: none;
+        }
+
+        .product-list-td-body-wrapper tr .body-td-4 {
+            border: 1px solid #000;
+            border-left: none;
+            border-top: none;
+        }
+
+        .product-list-td-body-wrapper tr .total-notified-item-td {
+            border: 1px solid #000;
+            padding-top: 3px;
+            border-top: none;
+        }
+
+        /*-----------------------------------------------------
+                      .back-signer-section
+        ------------------------------------------------------*/
+        .back-signer-section {
+            min-height: 400px;
+            height: auto;
+
+            width: 100%;
+            padding: 0;
+        }
+
+        .back-signer-section .text-wrapper {
+            text-align: center;
+
+            width: 400px;
+            float: right;
+            margin-top: 60px;
+            line-height: 26px;
+        }
+
+        .total-certificate-count-wrapper {
+            height: 20px;
+            width: 120px;
+            padding-top: 27px;
+            padding-left: 3px;
+
+            display: inline-block;
+            /*margin: 15px auto 0;*/
+            float: left;
+            font-size: 13px;
+            vertical-align: middle;
+        }
+
+        .qr-code-wrapper {
+            height: 50px;
+            width: 70px;
+            display: inline-block;
+            /*margin: 15px auto 0;*/
+            float: right;
+            padding: 4px;
+        }
+
+        .no-border td {
+            border: none !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <htmlpageheader name="pageheader">
+        <table cellspacing="0" borderspacing="0" width="100%" style="margin-bottom: 0;">
+            <tr>
+                <td class="text-center padding10" width="10%">
+                    <img src="images/mohs_logo.png" alt="logo" width='125px' height='125px'>
+                </td>
+                <td class="align-center text-center" width="80%">
+                    <h3>
+                        The Government of the Republic of the Union of Myanmar<br />
+                        Ministry of Health<br />
+                        Department of Food and Drug Administration<br />
+                    </h3>
+                </td>
+                <td class="text-center padding10" width="10%">
+                    <img src="images/FDAlogo.png" alt="logo" width='110px' height='110px'>
+                </td>
+            </tr>
+        </table>
+    </htmlpageheader>
+
+    <page size="A4">
+
+        <div class="third-header text-bold text-center">
+            DRUG REGISTRATION CERTIFICATE
+        </div>
+
+        <!-- ----------------------------------------------------
+                           .forth-header-table
+        ----------------------------------------------------- -->
+        <div class="forth-header-table">
+
+            <table class="header-table" width="100%" cellpadding="0" cellspacing="0" border="1px">
+                <tr>
+                    <th style="width: 50px;"></th>
+                    <th style="width: 100px;"></th>
+                </tr>
+                <tr class="header-td-1-wrap">
+                    <td class="child-header-td-1">Applicant's name</td>
+                    <td class="child-header-td-2">###APPLICANT_NAME###</td>
+                </tr>
+                <tr class="header-td-2-wrap">
+                    <td class="child-header-td-1">Address</td>
+                    <td class="child-header-td-2">###ADDRESS###</td>
+                </tr>
+                <tr class="header-td-3-wrap">
+                    <td class="child-header-td-1">Name of Product</td>
+                    <td class="child-header-td-2">###PRODUCT_NAME###</td>
+                </tr>
+                <tr class="header-td-4-wrap">
+                    <td class="child-header-td-1">Manufacturer</td>
+                    <td class="child-header-td-2">###MANUFACTURER###</td>
+                </tr>
+                <tr class="header-td-5-wrap">
+                    <td class="child-header-td-1">Dosage form</td>
+                    <td class="child-header-td-2">###DOS_FORM###</td>
+                </tr>
+                <tr class="header-td-6-wrap">
+                    <td class="child-header-td-1">Presentation</td>
+                    <td class="child-header-td-2">###PRESENTATION###</td>
+                </tr>
+                <tr class="header-td-7-wrap">
+                    <td class="child-header-td-1">Therapeutic Category</td>
+                    <td class="child-header-td-2">###THE_CATEGORY###</td>
+                </tr>
+                <tr class="header-td-8-wrap">
+                    <td class="child-header-td-1">Strength & Composition</td>
+                    <td class="child-header-td-2">###STRENGTH###</td>
+                </tr>
+                <tr class="header-td-9-wrap">
+                    <td class="child-header-td-1">Sales Category</td>
+                    <td class="child-header-td-2">###SALE_CATE###</td>
+                </tr>
+                <tr class="header-td-10-wrap">
+                    <td colspan="2" class="child-header-td-1">
+                        This certificate shall be valid until <b>###EXPIRE_DATE###</b> unless earlier suspended or
+                        cancelled.
+                        No change in specifications of the product shall be made without approval of Myanmar Food and
+                        Drug Board of
+                        Authority.
+                    </td>
+                </tr>
+                <tr class="header-td-11-wrap">
+                    <td class="child-header-td-1"></td>
+                    <td class="child-header-td-2">Ref DAC NS (2/2019)</td>
+                </tr>
+            </table>
+            <table class="header-table" width="100%" cellpadding="0" cellspacing="0" border="1px">
+                <tr>
+                    <th style="width:25%;"></th>
+                    <th style="width:75%;"></th>
+                </tr>
+                <tr class="header-td-12-wrap">
+                    <td class="child-header-td-1">Registration No</td>
+                    <td class="child-header-td-2">###CERTIFICATE###</td>
+                </tr>
+                <tr class="header-td-13-wrap">
+                    <td class="child-header-td-1">Date of Issue</td>
+                    <td class="child-header-td-2">###ISSUE_DATE###</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ----------------------------------------------------
+                           .on-behalf-of-dg-section
+        ----------------------------------------------------- -->
+        <!-- <div class="on-behalf-of-dg-section">
+            <div class="text-wrapper">
+                ###SIGNER###
+            </div>
+        </div> -->
+
+        <!-- ----------------------------------------------------
+                           .office-letter-section
+        ----------------------------------------------------- -->
+        <div class="office-letter-section">
+
+<!--            <div class="total-certificate-count-wrapper">-->
+<!--                ###TOTAL_COUNT###-###TOTAL_RENEWAL_COUNT###-->
+<!--            </div>-->
+            <div class="qr-code-wrapper">###QR_CODE###</div>
+        </div>
+
+        <!-- <div class="product-list-page">
+            ###PRODUCT_LISTS###
+        </div> -->
+
+    </page>
+
+    <htmlpagefooter name="footer" style="display:none;">
+        <div style="text-align: center;display: block;font-size: 13px;background-color: transparent;height: 20px;">
+            {PAGENO}/{nbpg}</div>
+    </htmlpagefooter>
+
+</body>
+
+</html>

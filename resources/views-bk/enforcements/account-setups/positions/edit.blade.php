@@ -1,0 +1,14 @@
+@extends('layouts.app')
+@section('content')
+<div class="row mt-5">
+<div class="col-md-10 offset-md-1">
+
+<x-utils.card :attrs="['title' => 'Edit Office User']">
+    <x-forms.form-tag :attrs="['id' => 'edit-admin-user-form', 'class' => 'edit-admin-user-form', 'method' => 'put', 'action' => route('account_setup.adminUsers.update', $user) ]">
+        @include('enforcements.account_setups.admin_users._form')
+    </x-forms.form-tag>
+</x-utils.card>
+
+</div>
+</div>
+@endsection

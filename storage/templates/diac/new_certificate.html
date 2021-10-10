@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+</head>
+<body>
+
+    <htmlpageheader name="pageheader">
+        <table cellspacing="0" borderspacing="0" width="100%" style="margin-bottom: 0;">
+            <tr>
+                <td class="text-center padding10" width="10%">
+                    <img src="images/mohs_logo.png" alt="logo" width='125px' height='125px'>
+                </td>
+                <td class="align-center text-center" width="80%">
+                    <h3>
+                        The Government of the Republic of the Union of Myanmar<br/>
+                        Ministry of Health<br/>
+                        Department of Food and Drug Administration<br/>
+                    </h3>
+                </td>
+                <td class="text-center padding10" width="10%">
+                    <img src="images/FDAlogo.png" alt="logo" width='110px' height='110px'>
+                </td>
+            </tr>
+        </table>
+    </htmlpageheader>
+
+    <page size="A4">
+        <div class="diac-certificate-title text-bold text-center">DRUG IMPORTATION APPROVAL CERTIFICATE</div>
+
+        <div class="certificate-issue-date-wrapper">            
+            <div class="certificate-no">
+                Approved Certificate No. ###CERTIFICATE_NO###
+            </div>        
+            <div class="date-of-issue">
+                Date of Issue ###ISSUE_DATE###
+            </div>
+        </div>
+
+        <div class="in-accordance-text" style=";">            
+           <p>In accordance with Section(5) Sub-section(h) of the National Drug Law,it is hereby certified that<br/>
+           <b>###BUSINESS_NAME###</b> has been issued an approval for important of drug as specified in the attached schedule under supervision of competent persons</p>
+           ###SUPERVISING_PERSONS###
+        </div>
+
+        <div class="storage-condition">            
+            <p>The approved location(s) and facilities there of the storage accomodation is/ are</p>
+            <p><b>###PLACE_OF_STORAGE###</b></p>
+        </div>
+
+        <div class="certificate-valid-text">            
+         <p>The certificate shall be valid until ###EXPIRE_DATE### unless earlier suspended or revoked.</p>
+        </div>
+
+        <div class="product-list-page landscape">            
+            <div class="diac-certificate-title text-bold text-center">LIST OF REGISTERED APPROVED</div>
+
+            <div class="list-certificate-issue-date-wrapper">            
+                <div class="list-certificate-no" >
+                    Approved Certificate No. :###CERTIFICATE_NO###
+                </div>        
+                <div class="list-validity-wrapper">
+                    <div class="list-valid-until">
+                        Valid Until&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ###ISSUE_DATE###
+                    </div>
+                    <div class="list-date-of-issue">
+                        Date of Issue&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ###EXPIRE_DATE###
+                    </div>
+                </div>
+            </div>
+            <p>(As per Ministry of Health's ordinance 5/93 Paragraph 17,F this approval is given on the condition that drugs are valid of their registrations at the tine of their importation.)</p>
+            ###LIST###
+        </div>
+ 
+    </page>
+
+     <htmlpagefooter name="footer" style="display:none;">
+        <div class="footer">
+            <div class="footer-qr-code">###QR_CODE###</div>
+        </div>
+        <div class="footer-page-no">{PAGENO}/{nbpg}</div>
+    </htmlpagefooter> 
+
+    <htmlpagefooter name="first_footer">
+        <div class="first-footer">
+            <div class="first-footer-qr-code">###QR_CODE###</div>
+        </div>
+        <div class="first-footer-page-no">{PAGENO}/{nbpg}</div>
+    </htmlpagefooter>
+
+</body>
+</html>
