@@ -65,6 +65,11 @@
              </div>
           </div>
 
+          <div class="input-field mb-4">
+            <label class="active">Photos</label>
+            <div class="input-images" style="padding-top: .5rem;"></div>
+        </div>
+
           <x-forms.textarea :attrs="['name' => 'desc', 'value' => $product->desc, 'label' => 'Detail Description']" />
           <hr/>
           <x-forms.submit confirmationText='{{ $confirmationText?? "Are you sure to submit?" }}'

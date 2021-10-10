@@ -139,5 +139,13 @@ $(function(){
     $('.magnific-popup-img').magnificPopup({
         type: 'image'
     });
+    $(document).ready(function(){
+
+        // $('.input-images').imageUploader();
+        $('.input-images').imageUploader({
+            label: 'Drag & Drop files here or click to browse',
+          });
+     
+     });
 
 });

@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/magnific-popup.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/micromodal.css') }}">
-    
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/image-uploader.min.css') }}">    
     </head>
   <body>
     <div class="container-scroller">
@@ -47,8 +47,9 @@
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/lib-one.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/lib-two.js') }}"></script>    
-    <script type="text/javascript" src="{{ asset('js/global.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/image-uploader.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/global.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/shop.js') }}"></script>
     @yield('ijs')
     @yield('icss')
