@@ -1,5 +1,13 @@
 <?php
 
+if ( !function_exists("active_file_driver") )
+{
+	function active_file_driver()
+	{
+		return config('filesystems.default');
+	}
+}
+
 if ( !function_exists("is_active_route") )
 {
 	function is_active_route($routeName, $bgColor = NULL)
@@ -57,46 +65,6 @@ if ( !function_exists("replace_space_with_dash") )
 	}
 }
 
-if ( !function_exists('caseCounter') )
-{
-	function caseCounter($count=null)
-	{
-		return $count? '<small class="nav-noti">'.$count.'</small>': null;
-	}
-}
-
-if ( !function_exists('approvedCaseCounter') )
-{
-	function approvedCaseCounter($count=null)
-	{
-		return $count? '<small class="nav-approved-noti">'.$count.'</small>': null;
-	}
-}
-
-if ( !function_exists('rejectedCaseCounter') )
-{
-	function rejectedCaseCounter($count=null)
-	{
-		return $count? '<small class="nav-rejcted-noti">'.$count.'</small>': null;
-	}
-}
-
-if ( !function_exists('incompleteCaseCounter') )
-{
-	function incompleteCaseCounter($count=null)
-	{
-		return $count? '<small class="nav-incomplete-noti">'.$count.'</small>': null;
-	}
-}
-
-if ( !function_exists('autoCancelledCaseCounter') )
-{
-	function autoCancelledCaseCounter($count=null)
-	{
-		return $count? '<small class="nav-auto-cancelled-noti">'.$count.'</small>': null;
-	}
-}
-
 if ( !function_exists("remove_dash") )
 {
 	function remove_dash($str)
@@ -105,31 +73,33 @@ if ( !function_exists("remove_dash") )
 	}
 }
 
-if( !function_exists('temp_issue_expire_date') ) {
+if ( !function_exists("js_assets") )
+{
+	function js_assets($loadedType="initial")
+	{
+		$js = array(
+			'app.js',
+			'lib-one.js',
+			'lib-two.js',
+			'jquery.magnific-popup.min.js',
+			'file-upload-with-preview.min.js',
+			'global.js',
+			'shop.js'
+		);
 
-	function temp_issue_expire_date($validityYear="2 YEAR")
-    {
-    	$validityYear = $validityYear;
-        $issueDate = date('d-m-Y');
-        $tempExpireDate = strtotime($validityYear, strtotime($issueDate));
-        $expireDate = date('d-m-Y', strtotime('-1 day', $tempExpireDate));
-        return [ 'isdate' => $issueDate, 'exdate' => $expireDate ];
-    }
+		$html = '';
 
+		foreach($js as $scriptFile):
+			$scriptFile = asset('js/' . $scriptFile);
+		    $html .= '<script loaded="'.$loadedType.'" type="text/javascript" src="' . ($scriptFile) . '"></script>';
+		endforeach;
+		return $html;
+	}
 }
 
-if(! function_exists('getParametersType')) {
-    function getParametersType()
-    {
-        $data = [
-            'Pharmaceutical Chemistry Laboratory',
-            'Biostandartization Laboratory',
-            'Bio-assay Test',
-            'Sterility Test',
-            // 'Adventitious Bacteria and Fungi Test',
-            'Microbial Limit Test',
-        ];
-
-        return $data;
-    }
+if ( !function_exists("css_assets") )
+{
+	function css_assets()
+	{
+	}
 }

@@ -23,7 +23,7 @@ class SubProductRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'color' => 'required',
             'size' => 'required',
 
@@ -35,8 +35,13 @@ class SubProductRequest extends FormRequest
             'price_bought' => 'required|numeric',            
             'price_sold' => 'required|numeric',
 
-            'desc' => 'nullable',
+            'desc' => 'nullable'
         ];
+
+        foreach(request()->file('files')??[] as $key => $file) {
+            $rules['files.'.$key] = ['required', 'mimes:jpg,jpeg,png,gif,svg'];
+        }
+        return $rules;
     }
 
     public function messages()

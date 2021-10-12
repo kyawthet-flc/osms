@@ -1,3 +1,4 @@
+
      var ElementHelpers = {
         displayOverlay: function(msg) {
             var overlay = $('<div class="form-overlay" style="text-align: center;padding-top: 180px;top: 0;bottom: 0;left: 0;right: 0;background-color: rgba(255,255,255,0.7) !important;position: fixed;z-index: 30000;overflow: hidden;"><div class="spinner-border" style="width: 3rem; height: 3rem;" role="status"><span class="sr-only"></span></div><br/><span style="font-size: 15px;">'+(msg?msg: 'Loading...')+'</span></div>');
@@ -39,8 +40,37 @@
         displayScrollbar: function() {
             $('body').css({overflow: "scroll !important"});
         },
+        customToastr: function(type = 'success', title,msg) {
+            toastr.options = {
+              "closeButton": true,
+              "debug": false,
+              "newestOnTop": false,
+              "progressBar": false,
+              "positionClass": "toast-top-center",
+              "preventDuplicates": true,
+              "onclick": null,
+              "showDuration": "700",
+              "hideDuration": "1000",
+              "timeOut": "5000",
+              "extendedTimeOut": "7000",
+              "showEasing": "swing",
+              "hideEasing": "linear",
+              "showMethod": "fadeIn",
+              "hideMethod": "fadeOut"
+            }
+            
+            if ( type === 'success' ) {
+                toastr.success(msg, title);
+            }
+            if ( type === 'info') {
+                toastr.info(msg, title);
+            }
+            if ( type === 'error' ) {
+                toastr.error(msg, title);
+            }
+    
+        }
     }
-
 
     function AjaxErrorHandler(err, xhr, text, element) {
         var validationMsg, validationTitle;
@@ -73,16 +103,9 @@
         
         ElementHelpers.enableElement(element);
         ElementHelpers.hideOverlay();
+// base_url + 'images/khaby-lame/image-1.jpg'
+        ElementHelpers.customToastr('error', validationMsg, validationTitle);
 
-        VanillaToasts.create({
-            title: validationTitle,
-            text: validationMsg,
-            type: 'error', // success, info, warning, error   / optional parameter
-            positionClass: 'topCenter',
-            icon: window.base_url + 'images/khaby-lame/image-1.jpg', // optional parameter
-            timeout: 3000, // hide after 5000ms, // optional paremter
-            callback: function() { } // executed when toast is clicked / optional parameter
-        });
     }
 
     function AjaxSuccessHandler(response, element) {
@@ -100,9 +123,10 @@
         ElementHelpers.enableElement(element);
         ElementHelpers.hideOverlay();
     }
+ 
 
-$(function(){
-    // For Modal
+$(function($){
+
     MicroModal.init({
         onShow: modal => console.info(`${modal.id} is shown`), // [1]
         onClose: modal => console.info(`${modal.id} is hidden`), // [2]
@@ -113,39 +137,55 @@ $(function(){
         disableFocus: false, // [7]
         awaitOpenAnimation: true, // [8]
         awaitCloseAnimation: true, // [9]
-        debugMode: true // [10]
+        debugMode: false // [10]
     });
 
+    
     $('.escaped-select').select2({
         escapeMarkup: function(data) {
             return data;
         }
     });    
-    
-    $(document).on('keyup', 'input[number="yes"]', function(){
-        if(!/^[0-9]*$/.test(this.value)){
-            this.value = this.value.split(/[^0-9.]/).join('');
-            VanillaToasts.create({
-                // title: '<span class="text-danger">Error!</span>',
-                text: '<span class="text-danger">Plese enter number!</span>',
-                type: 'error', // success, info, warning, error   / optional parameter
-                positionClass: 'bottomCenter',
-                // icon: '/img/alert-icon.jpg', // optional parameter
-                timeout: 500
-            });
-        }
+    $('input[number="yes"]').on('keyup', function(){
+        // if( document.readyState === 'complete' ) {
+            if(!/^[0-9]*$/.test(this.value)){
+                this.value = this.value.split(/[^0-9.]/).join('');
+            }
+            ElementHelpers.customToastr('error', 'Number only', '');
+        // }
     });
 
     $('.magnific-popup-img').magnificPopup({
         type: 'image'
     });
-    $(document).ready(function(){
 
-        // $('.input-images').imageUploader();
-        $('.input-images').imageUploader({
-            label: 'Drag & Drop files here or click to browse',
-          });
+    // $('.input-images').imageUploader();
+    // $('.input-images').imageUploader({
+    //     label: 'Drag & Drop files here or click to browse',
+    //     imagesInputName: 'files'
+    // });
      
-     });
+    $('.modal__close,.modal__btn').on('click', function(){
+        // alert('s')
+        // var id = $(this).parents('div.micromodal-slide').attr('id');
+        $('.modal.is-open').css({'display': 'none'});
+ 
+    });
+    
+    if( $('div[data-upload-id="myUniqueUploadId"]').length > 0 ) {
+    // new FileUploadWithPreview("myUniqueUploadId");
+     fileUpload = new FileUploadWithPreview("myUniqueUploadId", {
+        showDeleteButtonOnImages: true,
+        text: {
+            chooseFile: "....",
+            browse: "Browse",
+            selectedCount: "....",
+        },
+        // images: {
+        //     baseImage: importedBaseImage,
+        // },
+        presetFiles: existingImages || [],
+    });
+    }
 
-});
+})

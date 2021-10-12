@@ -58,4 +58,13 @@ class File extends Model
         }
          return $content;
     }
+
+    // public function showNormal()
+    // {
+    //     $fileName = $this->file_directory . '/' . $this->file_name . '.' . $this->file_extension;
+    //     if ( Storage::disk($this->disk)->exists($fileName) ) {
+    //         // return $this->disk . '/' .  $fileName;
+    //         return Storage::disk($this->disk)->url($fileName);
+    //     }        
+    // }
 }

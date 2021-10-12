@@ -21,9 +21,9 @@ class CreateSubProductsTable extends Migration
             $table->string('color')->nullable();
             $table->string('size')->nullable();
 
-            $table->tinyInteger('quantity_bought')->nullable();
-            $table->tinyInteger('quantity_avaiable');
-            $table->tinyInteger('quantity_left');
+            $table->integer('quantity_bought')->nullable();
+            $table->integer('quantity_avaiable');
+            $table->integer('quantity_left');
             $table->string('unit')->nullable();
             
             $table->integer('price_bought');

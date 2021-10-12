@@ -12,12 +12,12 @@ class FileUploader
 {
     protected $disk;
 
-    public function __construct($disk='local')
+    public function __construct($disk=null)
     {
-        $this->disk = $disk;
+        $this->disk = $disk?? active_file_driver();
     }
 
-    public function uploadSingle($file, $file_directory, $encrypt = 1)
+    public function uploadSingle($file, $file_directory, $encrypt = true)
     {
         $fileContent = $file->get();
         $original_name = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
@@ -40,8 +40,17 @@ class FileUploader
             'file_directory' => $file_directory,
             'disk' => $this->disk,
             'content_type' => $content_type,
-            'is_encrypted' => $encrypt,
+            'is_encrypted' => $encrypt? 1: 0,
         ])->id;
+    }
+
+    public function uploadMultiple($files, $directory, $encrypt= true)
+    {
+        $fileArr = array();
+        foreach ((array)$files as $key => $file) {
+            $fileArr[$key] = $this->uploadSingle($file, $directory, $encrypt);
+        }
+        return $fileArr;
     }
 
     /*public function deleteSingle()
@@ -68,15 +77,6 @@ class FileUploader
     private function getFullName()
     {
         return $this->file_directory . '/' . $this->file_name . '.' . $this->file_extension;
-    }
-
-    public function uploadMultiple($files, $directory)
-    {
-        $fileArr = array();
-        foreach ((array)$files as $key => $file) {
-            $fileArr[$key] = self::uploadSingle($file, $directory);
-        }
-        return $fileArr;
     }
 
     public function decryptFile()

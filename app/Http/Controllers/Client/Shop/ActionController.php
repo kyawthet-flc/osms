@@ -84,7 +84,7 @@ class ActionController extends Controller
 
         // $validated['logo'] = (new FileUploader('osms'))->uploadSingle($request->logo, 'osms_folder');
         if ( $request->hasFile('logo') ) {
-           $validated['logo'] = (new FileUploader('osms'))->uploadSingle($request->logo, 'osms_folder');
+           $validated['logo'] = (new FileUploader())->uploadSingle($request->logo, 'shop_logos');
         } else {
             unset($validated['logo']);
         }

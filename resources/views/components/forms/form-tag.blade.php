@@ -1,7 +1,7 @@
 @php
 $finalMetod = in_array($method, ['put', 'delete', 'post', 'patch'])? 'post': 'get';
 @endphp
-<form id="{{ $id }}" action="{{ $action }}" method="{{ $finalMetod }}" enctype="multipart/form-data">
+<form id="{{ $id }}" class="{{ $class }}" action="{{ $action }}" method="{{ $finalMetod }}" enctype="multipart/form-data">
     @if($method !== 'get')
         @csrf
     @endif

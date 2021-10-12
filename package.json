@@ -24,14 +24,18 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "bootstrap-toaster": "^4.1.2",
         "chart.js": "^2.9.4",
         "datatables": "^1.10.18",
         "daterangepicker": "^3.1.0",
+        "dropzone": "^5.9.3",
+        "file-upload-with-preview": "^4.2.0",
         "magnific-popup": "^1.1.0",
         "micromodal": "^0.4.6",
         "select2": "^4.0.13",
         "summernote": "^0.8.18",
         "sweetalert2": "^10.16.9",
+        "toastr": "^2.1.4",
         "vanillatoasts": "^1.4.0"
     }
 }

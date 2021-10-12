@@ -15,17 +15,40 @@
     <link rel="apple-touch-icon" href="">
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
     <script>
-      window.base_url = "{{ url('/') }}/"
+      window.base_url = "{{ url('/') }}/";
+      var fileUpload, existingImages;
     </script>
+  {{--
+    @php
+      $csses = array(
+        'app.css',
+        'lib-one.css',
+        'lib-two.css',
+        'vanillatoasts.css',
+        'magnific-popup.css',
+        'micromodal.css',
+        'image-uploader.min.css',
+        'custom.css'
+      )
+    @endphp
+    @foreach($csses as $cssFile)
+      <link loaded="initial" type="text/css" href="{{ asset('css/' . $cssFile) }}">
+    @endforeach
+    --}}
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/lib-one.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/lib-two.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/vanillatoasts.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/magnific-popup.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/micromodal.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/image-uploader.min.css') }}">    
+    <link rel="stylesheet" loaded="initial" type="text/css" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" loaded="initial" type="text/css" href="{{ asset('css/lib-one.css') }}">
+    <link rel="stylesheet" loaded="initial" type="text/css" href="{{ asset('css/lib-two.css') }}">
+    <link rel="stylesheet" loaded="initial" type="text/css" href="{{ asset('css/vanillatoasts.css') }}">
+    <link rel="stylesheet" loaded="initial" type="text/css" href="{{ asset('css/custom.css') }}">
+    <link rel="stylesheet" loaded="initial" type="text/css" href="{{ asset('css/magnific-popup.css') }}">
+    <link rel="stylesheet" loaded="initial" type="text/css" href="{{ asset('css/micromodal.css') }}">
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://unpkg.com/file-upload-with-preview@4.1.0/dist/file-upload-with-preview.min.css"
+/>
+    <link rel="stylesheet" loaded="initial" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     </head>
   <body>
     <div class="container-scroller">
@@ -44,14 +67,12 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/lib-one.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/lib-two.js') }}"></script>    
-    <script type="text/javascript" src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/image-uploader.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/global.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/shop.js') }}"></script>
-    @yield('ijs')
-    @yield('icss')
   </body>
+  <footer>
+  {!! js_assets() !!}
+
+@yield('ijs')
+
+@yield('icss')
+  </footer>
 </html>

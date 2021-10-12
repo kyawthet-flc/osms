@@ -59,13 +59,7 @@ html,body,p,div,*,table,h1,h2,h3,h4,h5,h6,a,tr,th,td,thead,tbody {
     margin-bottom: 40px;
 }
 
-
-
-/* Vaniall Toater */
-#vanillatoasts-container {
-    z-index: 10001;
-}
-
+ 
 .card .card-body {
     padding-top: 3px !important;
 }
@@ -76,21 +70,31 @@ html,body,p,div,*,table,h1,h2,h3,h4,h5,h6,a,tr,th,td,thead,tbody {
 
 .modal__container {
     margin-top: 7px;
-    z-index: 1000;
+    z-index: 1032;
+}
+.micromodal-slide.is-open {
+    z-index: 1032;
+}
+.mfp-content {
+    z-index: 1033 !important;
 }
 
-.vanillatoasts-icon {
-    /* position: fixed;
-    top: 5px;
-    left: 0;
-    width: 300px;
-    height: 300px;
-    border-radius: 100%;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-    background: #FFF; */
-    top: 100px;
-    width: 230px;
-    height: 230px;
-    -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+.exiting-file-wrapper {
+    clear: both;
+    height: auto;
+    padding: 3px 0;
+}
+
+.existing-sub-product_image {
+    /* background: red; */
+    width: 90px !important;
+    border:1px solid #555;
+    height: 36px;
+    border-radius: 4px;
+    float: left;
+    text-align: center;
+    margin-right: 3px;
+    position: relative;
+    margin-bottom: 4px;
+    padding: 5px;
 }

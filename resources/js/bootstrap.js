@@ -18,7 +18,8 @@ try {
     // require('datatables');
     window.Swal = Swal = require('sweetalert2');
     var MicroModal = require('micromodal');
-    window.VanillaToasts = VanillaToasts = require('vanillatoasts');
+    window.toastr = require('toastr');
+    
 } catch (e) {}
 
 /**
