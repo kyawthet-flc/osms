@@ -18,7 +18,7 @@ class CreateCustomersTable extends Migration
 
             $table->unsignedBigInteger('shop_id');
             $table->string('name');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('phone');
 
             $table->string('coordinates')->nullable();

@@ -4,7 +4,7 @@
       <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
         <header class="modal__header">
           <h2 class="modal__title" id="modal-1-title">Add Product Variations</h2>
-          <button class="modal__close" data-custom-close="modal-1" aria-label="Close modal" data-micromodal-close></button>
+          <button class="modal__close close-modal-box" data-custom-close="modal-1" aria-label="Close modal" data-micromodal-close></button>
         </header>
         <main class="modal__content w-100" id="modal-1-content">
        
@@ -14,7 +14,7 @@
               'name' => 'size', 
               'selected' => $subProduct->size, 
               'label' => 'Size',
-              'list' => ['a', 'b'], 
+              'list' => ['XL', 'X', 'M', 'S', 'X', 'XL'], 
               'required' => 'required'
           ]" />
           <x-forms.select-with-value-value :attrs="[
@@ -22,7 +22,7 @@
               'name' => 'color', 
               'selected' => $subProduct->color, 
               'label' => 'Color',
-              'list' => ['a', 'b'], 
+              'list' => ['Red', 'Green', 'Yellow'], 
               'required' => 'required'
           ]" />
           <div class="form-group">
@@ -120,7 +120,7 @@
 
           </main>
         <footer class="modal__footer">
-          <button class="modal__btn" data-custom-close="modal-1" data-micromodal-close aria-label="Close this dialog window">Cancel</button>
+          <button class="modal__btn close-modal-box" data-custom-close="modal-1" data-micromodal-close aria-label="Close this dialog window">Cancel</button>
         </footer>
       </div>
     </div>

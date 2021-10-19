@@ -25,30 +25,13 @@
             <i class="mdi mdi-plus-circle"></i> Add New Variation
             </a>
         </div>
-        <div class="col-md-12 sub-product-form-wrapper mb-3">
-          
-        </div>
-<!--
-    "product_id" => 1
-    "sub_sku" => ""
-    "color" => "a"
-    "size" => "a"
-    "quantity_bought" => 10
-    "quantity_avaiable" => 10
-    "quantity_left" => 0
-    "unit" => "items"
+        <!-- For Creating and Editting Sub Product -->
+        <div class="col-md-12 sub-product-form-wrapper mb-3"></div>
 
-    "price_bought" => 10000
-    "price_original" => 0
-    "price_sold" => 15000
-    "currency" => 0
-    "is_sold_out" => "no"
-    "desc" => "Fugit ad magnam ali"
--->
        <div class="col-md-12">
         <x-utils.data-table :ths="[
-            'No.',
-            'Sub SKU', 
+           'No.',
+           'Sub SKU', 
            'Size', 
            'Color', 
            'Bought/ Avaiable(Quantity) - Unit', 

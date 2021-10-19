@@ -39,6 +39,7 @@ class Shop extends Model
         // return "$this->address . '<br/>(' . $this->township->name . ' - '. $this->district->name .' - '.  $this->division->name . ')";
         return "{$this->address}<br/>({$this->township->name} - {$this->district->name} - {$this->division->name})";
     }
+
     public function getCompleteShopNameAttribute()
     {
         return "{$this->name}<br/>({$this->name_mm})";

@@ -15,7 +15,7 @@ class CreateSubProductsTable extends Migration
     {
         Schema::create('sub_products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constraint();
+            $table->foreignId('product_id')->constrained();
             $table->integer('sub_sku')->nullable();
 
             $table->string('color')->nullable();

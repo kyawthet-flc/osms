@@ -9,6 +9,8 @@ Route::prefix('customer')->name('customer.')->namespace('Client\Customer')->grou
     Route::post('store', 'ActionController@store')->name('store');
     
     Route::get('edit/{customer}', 'ActionController@edit')->name('edit');
-    Route::post('update/{customer}', 'ActionController@update')->name('update');
+    Route::put('update/{customer}', 'ActionController@update')->name('update');
+
+    Route::delete('delete/{customer}', 'ActionController@delete')->name('delete');
 
 });

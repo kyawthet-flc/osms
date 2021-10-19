@@ -30,6 +30,7 @@
         "daterangepicker": "^3.1.0",
         "dropzone": "^5.9.3",
         "file-upload-with-preview": "^4.2.0",
+        "gijgo": "^1.9.13",
         "magnific-popup": "^1.1.0",
         "micromodal": "^0.4.6",
         "select2": "^4.0.13",

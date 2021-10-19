@@ -15,7 +15,7 @@ try {
     require('daterangepicker');
     require('summernote');
     require('chart.js');
-    // require('datatables');
+    // require('gijgo');
     window.Swal = Swal = require('sweetalert2');
     var MicroModal = require('micromodal');
     window.toastr = require('toastr');

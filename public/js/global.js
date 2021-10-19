@@ -1,4 +1,6 @@
 
+     "use strict";
+
      var ElementHelpers = {
         displayOverlay: function(msg) {
             var overlay = $('<div class="form-overlay" style="text-align: center;padding-top: 180px;top: 0;bottom: 0;left: 0;right: 0;background-color: rgba(255,255,255,0.7) !important;position: fixed;z-index: 30000;overflow: hidden;"><div class="spinner-border" style="width: 3rem; height: 3rem;" role="status"><span class="sr-only"></span></div><br/><span style="font-size: 15px;">'+(msg?msg: 'Loading...')+'</span></div>');
@@ -49,7 +51,7 @@
               "positionClass": "toast-top-center",
               "preventDuplicates": true,
               "onclick": null,
-              "showDuration": "700",
+              "showDuration": "7000000",
               "hideDuration": "1000",
               "timeOut": "5000",
               "extendedTimeOut": "7000",
@@ -75,6 +77,11 @@
     function AjaxErrorHandler(err, xhr, text, element) {
         var validationMsg, validationTitle;
 
+        if( err.status === 404 ) {
+            validationTitle = 'ERROR!';
+            validationMsg = 'URL NOT FOUND.';
+        }
+
         if( err.status === 500 ) {
             validationTitle = 'Server went wrong!';
             validationMsg = 'Webmaster has trying to fix.';
@@ -94,7 +101,7 @@
             for (var e in err.responseJSON.errors) {
                 var l = e.split(".")[0];
                 if (void 0 !== err.responseJSON.errors[e][0]) {
-                    var B = $(document).find("#" + l).parents("div.file-selection-wrapper").siblings("div.validation-msg");
+                    var B = $(document).find("#" + l).parents("div.seperate-validation-wrapper").children("div.validation-msg-holder");
                     var errMsg =  err.responseJSON.errors[e][0];
                     B.length > 0 ? $('<span style="display: block;" class="ajax-validation-error">' + errMsg + "</span>").appendTo(B) : $('<span style="display: block;" class="ajax-validation-error">' + errMsg + "</span>").appendTo($('[name="' + l + '"]').parent("div"))
                 }
@@ -111,17 +118,21 @@
     function AjaxSuccessHandler(response, element) {
 
         if ( 'success' === response.status ) {
+            ElementHelpers.hideOverlay();
             Swal.fire({ html: response.msg, confirmButtonColor: '#3085d6', icon: 'success' }).then(function(result){
                 if ( result.isConfirmed ) {
-                    window.location.href = response.redirectUrl
+                    // window.location.href = response.redirectUrl;
+                    setTimeout(function(){
+                        document.location.href = response.redirectUrl;
+                    },250);
                 }
             });
         } else if ( 'error' === response.status ) {
             Swal.fire({html: response.msg, confirmButtonColor: '#3085d6', icon: 'error'});
+            ElementHelpers.enableElement(element);
+            ElementHelpers.hideOverlay();
         }
         
-        ElementHelpers.enableElement(element);
-        ElementHelpers.hideOverlay();
     }
  
 
@@ -145,8 +156,23 @@ $(function($){
         escapeMarkup: function(data) {
             return data;
         }
-    });    
-    $('input[number="yes"]').on('keyup', function(){
+    });
+
+    function formatOrderCustomerSelection(state)
+    {
+     console.log(state)
+     return  state.text;
+    }
+
+    $('.order-customer-selection').select2({
+        escapeMarkup: function(markup) {
+        return markup;
+      },
+       templateResult: function(state) {
+        return state.text;
+      }   });
+
+    $(document).on('keyup', 'input[number="yes"]', function(){
         // if( document.readyState === 'complete' ) {
             if(!/^[0-9]*$/.test(this.value)){
                 this.value = this.value.split(/[^0-9.]/).join('');
@@ -165,10 +191,12 @@ $(function($){
     //     imagesInputName: 'files'
     // });
      
-    $('.modal__close,.modal__btn').on('click', function(){
+    $('.close-modal-box').on('click', function(){
         // alert('s')
         // var id = $(this).parents('div.micromodal-slide').attr('id');
-        $('.modal.is-open').css({'display': 'none'});
+        // $('.modal.is-open').css({'display': 'none'});
+        // window.reload();
+        window.location.reload();
  
     });
     

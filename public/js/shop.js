@@ -1,3 +1,4 @@
+"use strict";
 // For OSMS-001  OSMS-006
 $(function(){
 
@@ -221,3 +222,186 @@ $(function(){
         }        
     });
 });
+
+// PAGENO: OSMS-022 - order create page
+// $(function(){
+//     $('select.order-product-id').on('change', function(e){
+//         if( $(this).val() === 0 ) {
+//             return false;
+//         }
+
+//         var self = $(this);
+
+//         $.ajax({
+//             url: self.attr('request-url'),
+//             data: {
+//                 productId: self.val(),
+//                 redirectUrl: self.attr('redirect-url')
+//             }
+//         }).then(function(res){
+
+//             if( 'success' === res.status) {
+//                 // ElementHelpers.enableElement(self);
+//                 // ElementHelpers.hideOverlay();
+
+//                 // $(document).find('.sub-product-form-wrapper').html(res.data.form);
+//                 // $('script[loaded="initial"]').remove();
+//                 // $('script[loaded="secondary"]').remove();
+//                 // $(document).find('.micromodal-slide').addClass('is-open');
+//                 // $('head').append(res.data.assets.js);
+//             }
+//             // AjaxSuccessHandler(res, self);
+//         }).catch(function(err, xhr, text){
+//         });
+        
+//     });
+// });
+
+function OrderProductVariation(ajaxUrl) {
+    this.ajaxUrl = ajaxUrl;
+    this.init = function() {
+
+        $(document).on('change', 'select[name="size"]', function(e){
+            handleSizeBoxAndGenerateColor($(this));
+        });
+
+        $(document).on('change', 'select[name="color"]', function(e){
+            handleColorBox($(this));
+        });
+
+        $(document).on('click', '.save-product-variation', function(e){
+            e.preventDefault();
+            var self = $(this);
+            var code = $(document).find('input[name="code"]').val();
+            var quantityLeft = $('.quantity-counter').html();
+            var size = $(document).find('select[name="size"]').val();
+            var color = $(document).find('select[name="color"]').val();
+            var quantity = $(document).find('input[name="quantity"]').val();
+            var subProductId = $(document).find('input[name="sub_product_id"]').val();
+
+            var customerId = $(document).find('select[name="customer_id"]').val();
+            var productId = $(document).find('select[name="product_id"]').val();
+ 
+            if ( customerId == '' ) {
+                ElementHelpers.customToastr('error', '', 'Please Choose Customer Name.');
+                return false;
+            } else if ( productId == '' ) {
+                ElementHelpers.customToastr('error', '', 'Please Choose Product Name.');
+                return false;
+            } else if ( size == '' ) {
+                ElementHelpers.customToastr('error', '', 'Please Choose Size.');
+                return false;
+            } else if ( color == '' ) {
+                ElementHelpers.customToastr('error', '', 'Please Choose Color.');
+                return false;
+            } else if ( quantity == '' || quantity < 1) {
+                ElementHelpers.customToastr('error', '', 'Please Choose Quantity.');
+                return false;
+            } else if ( parseInt(quantity) > parseInt(quantityLeft) ) {
+                ElementHelpers.customToastr('error', '', 'Unknown Quantity.');
+            } else {
+
+                ElementHelpers.disableElement(self);
+                ElementHelpers.displayOverlay('Please wait...');
+
+                $.ajax({
+                    url: ajaxUrl,
+                    method: 'post',
+                    data: {
+                        customerId: customerId,
+                        productId: productId,
+                        subProductId: subProductId,
+                        code: code,
+                        variations: {
+                            size: size,
+                            color: color,
+                            quantity: quantity
+                        },
+                        redirectUrl: self.attr('redirect-url'),
+                        _token: $('meta[name="csrf-token"]').attr('content')
+                    }
+                }).then(function(res){
+
+                    if( 'success' === res.status) {
+                        window.location.href = res.redirectUrl;
+                    } else {
+                        ElementHelpers.customToastr('error', '', res.msg);
+                    }
+
+                    ElementHelpers.enableElement(self);
+                    ElementHelpers.hideOverlay();
+
+                }).catch(function(err, xhr, text){
+                    ElementHelpers.customToastr('error', '', "Error Occured.Please try again!");
+                    ElementHelpers.enableElement(self);
+                    ElementHelpers.hideOverlay();
+                });
+            }
+            return false;
+        });
+
+        function generateSizeSelection()
+        {
+            var colorSelect = '<option value="">Please Select</option>'
+            $.each(colors,function(color, obj){
+                colorSelect += "<option value='"+color+"' varition-ral‌ation='"+ JSON.stringify(obj)+"'>"+color+ "</option>";
+            });
+            colorSelectBox.prop('disabled', false).html(colorSelect);
+        }
+
+        function handleSizeBoxAndGenerateColor(element)
+        {
+            var colorSelectBox = $(document).find('select[name="color"]');
+
+            if ( element.val() ) {
+                
+                var colors = $(':selected', element).attr("color-relation");
+                colors = JSON.parse(colors) || {};
+
+                colorSelectBox.prop('disabled', false).html('');
+                toggleQuantityBox();
+                handleSubProductId('');
+
+                var colorSelect = '<option value="">Please Select</option>'
+                $.each(colors,function(color, obj){
+                    colorSelect += "<option value='"+color+"' varition-ral‌ation='"+ JSON.stringify(obj)+"'>"+color+ "</option>";
+                });
+                colorSelectBox.prop('disabled', false).html(colorSelect);
+
+            }
+        }
+
+        function handleColorBox(element)
+        {
+            if ( element.val() ) {
+                var variations = $(':selected', element).attr("varition-ral‌ation");
+                var variationsObj = JSON.parse(variations) || {};
+                toggleQuantiryLeft(variationsObj.quantity_left);
+                toggleQuantityBox(0)
+                handleSubProductId(variationsObj.id);
+            }
+        }
+
+        function toggleQuantityBox(quantity='')
+        {
+            var quantityBox = $(document).find('input[name="quantity"]');
+
+            if ( quantity ) {
+                quantityBox.attr('max', quantity).prop('disabled', false).val(quantity);
+            } else {
+                quantityBox.prop('disabled', false).val(0);
+            }
+        }
+
+        function toggleQuantiryLeft(counter='')
+        {
+            $(document).find('.quantity-counter').html(counter);
+        }
+
+        function handleSubProductId(subProductId)
+        {
+            $(document).find('input[name="sub_product_id"]').val(subProductId);
+        }
+
+    }            
+}

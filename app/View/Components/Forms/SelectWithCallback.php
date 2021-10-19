@@ -4,25 +4,27 @@ namespace App\View\Components\Forms;
 
 use Illuminate\View\Component;
 
-class RadioInput extends Component
+class SelectWithCallback extends Component
 {
     public $label;
     public $id;
     public $class;
     public $name;
-    public $list;
-    public $checked;
+    public $selected;
     public $required;
-  
+    public $readOnly;
+    public $disabled;
+
     public function __construct($attrs = array())
     {
         $this->label = $attrs['label']?? '';
         $this->id = $attrs['id']?? '';
         $this->class = $attrs['class']?? '';
         $this->name = $attrs['name']?? '';
-        $this->list = $attrs['list']?? [];
-        $this->checked = $attrs['checked']?? false;
+        $this->selected = $attrs['selected']?? '';
         $this->required = !empty($attrs['required'])?$attrs['required'] : '';
+        $this->readOnly = isset($attrs['readOnly']);
+        $this->disabled = isset($attrs['disabled']);
     }
 
     /**
@@ -32,6 +34,6 @@ class RadioInput extends Component
      */
     public function render()
     {
-        return view('components.forms.radio-input');
+        return view('components.forms.select-with-callback');
     }
 }

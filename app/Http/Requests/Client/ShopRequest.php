@@ -29,7 +29,7 @@ class ShopRequest extends FormRequest
             "website" => 'nullable',
             "phone" => 'nullable',
             "facebook" => 'nullable',
-            "logo" => 'nullable',
+            "logo" => 'nullable|mimes:png,jpg,jpeg',
             "ts_id" => 'required',
             "status" => "required",
             "address" => "nullable",

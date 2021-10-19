@@ -39,7 +39,7 @@ class SubProductRequest extends FormRequest
         ];
 
         foreach(request()->file('files')??[] as $key => $file) {
-            $rules['files.'.$key] = ['required', 'mimes:jpg,jpeg,png,gif,svg'];
+            $rules['files.'.$key] = ['mimes:jpg,jpeg,png,gif,svg'];
         }
         return $rules;
     }

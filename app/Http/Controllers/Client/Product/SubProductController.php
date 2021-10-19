@@ -19,13 +19,14 @@ class SubProductController extends Controller
 
     public function list($sku)
     {
-        $product = Product::whereSku($sku)->first();
-
-        return $this->toView('sub_product_list',[
-            'product' => $product,
-            'subProduct' => new SubProduct,
-            'subProducts' => $product->subProducts
-        ]);
+        if ( $product = Product::whereSku($sku)->first() ) {
+            return $this->toView('sub_product_list',[
+                'product' => $product,
+                'subProduct' => new SubProduct,
+                'subProducts' => $product->subProducts
+            ]);
+        }
+        return back();
     }
 
     public function getForm($sku, SubProduct $subProduct=null)
@@ -72,8 +73,10 @@ class SubProductController extends Controller
             "size" => $request->size,
             "quantity_bought" => $request->quantity_bought,
             "quantity_avaiable" => $request->quantity_avaiable,
+            "quantity_left" => $request->quantity_avaiable,
             "unit" => $request->unit,
             "price_bought" => $request->price_bought,
+            "price_original" => $request->price_bought,
             "price_sold" => $request->price_sold,
             "desc" => $request->desc
         ];

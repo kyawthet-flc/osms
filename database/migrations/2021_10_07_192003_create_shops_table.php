@@ -15,7 +15,7 @@ class CreateShopsTable extends Migration
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constraint();
+            $table->foreignId('user_id')->constrained();
             $table->string('name');
             $table->string('name_mm')->nullable();
             $table->string('website')->nullable();

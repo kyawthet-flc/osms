@@ -13,7 +13,7 @@ class CustomerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class CustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "shop_id" => 'required',
+            "name" => 'required',
+            "email" => 'nullable',
+            "phone" => 'required',
+            "ts_id" => 'nullable',
+            "address" => "required",
+            "desc" => "nullable"
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            "ts_id.required" => 'The township field  is required.'
         ];
     }
 }
