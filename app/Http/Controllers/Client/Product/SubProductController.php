@@ -35,7 +35,7 @@ class SubProductController extends Controller
         $product = Product::whereSku($sku)->first();
 
         return $this->jsonResponse('success', 'Successfully Fetched.', '#',[
-            'form' => view('clients.products._sub_product_form',[
+            'form' => view($this->baseViewPath . '_sub_product_form',[
                 'product' => $product,
                 'subProduct' => $subProduct? $subProduct:new SubProduct,
                 'action' => route('product.sub_product.store',['sku' => $sku, 'subProduct' => $subProduct]), 

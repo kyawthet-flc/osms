@@ -2,6 +2,10 @@
 @extends('layouts.app')
 @section('content')
 <x-utils.card :attrs="['title' => 'List']">
+
+<!-- For displaying order detail -->
+<div class="col-md-12 display-order-detail mb-3"></div>
+
     <x-utils.data-table :ths="[
         'No.', 
         'Tracking No.', 
@@ -26,19 +30,19 @@
             <!-- <td>{!! $list->received_at !!}</td> -->
             <!-- <td>{{ $list->paid_at }}</td> -->
             <td>{{ $list->updated_at }}</td>
-            <td>
-              <a class="btn btn-sm btn-outline-success" href="{{ route('order.create', ['code' => $list->code, 'customer_id' => $list->customer_id ]) }}">
-                <i class="mdi mdi-eye"></i>View
+            <td> 
+              <a class="btn btn-sm btn-outline-success" view-attr="view-item" href="{{ route('order.show', ['order' => $list,'code' => $list->code, 'customer_id' => $list->customer_id ]) }}">
+                <i class="mdi mdi-eye"></i>
               </a><br/>
               <a class="btn mt-1 btn-sm btn-outline-warning" href="{{ route('order.create', ['code' => $list->code, 'customer_id' => $list->customer_id ]) }}">
-                <i class="mdi mdi-pencil-box"></i>Edit
+                <i class="mdi mdi-pencil-box"></i>
               </a><br/>
                 <a class="btn mt-1 btn-sm btn-outline-danger" 
                   del-attr="delete-item" 
                   confirmationText="Are you sure to delete?"
                   del-redirect-url="{{ url()->full() }}"
                   href="{{ route('order.delete', ['order' => $list, 'redirectUrl' => current_url() ]) }}">
-                <i class="mdi mdi-delete"></i>Delete
+                <i class="mdi mdi-delete"></i>
               </a>
 
             </td>

@@ -47,8 +47,12 @@ $(function(){
 });
 
 // For following Page Number(shop,product update and create)
-// OSMS-005  OSMS-004  OSMS-003
-// OSMS-010  OSMS-009  OSMS-008
+// OSMS-005
+// OSMS-004
+// OSMS-003
+// OSMS-010
+// OSMS-009
+//OSMS-008
 $(function(){
 
     var enableConfirmation = true;
@@ -405,3 +409,36 @@ function OrderProductVariation(ajaxUrl) {
 
     }            
 }
+
+
+
+// PAGENO: OSMS-019
+$(function(){
+ 
+    $('a[view-attr="view-item"]').on('click', function(e){
+        e.preventDefault();        
+        var form = $(this).parents('form'), self = $(this);
+            
+        ElementHelpers.disableElement(self);
+        ElementHelpers.displayOverlay('Please wait...');
+        $.ajax({
+            url: self.attr('href'), 
+            data: {
+                redirectUrl: self.attr('del-redirect-url'),
+                _token: $('meta[name="csrf-token"]').attr('content')
+            },
+        }).then(function(res){
+            if( res.status === 'success') {
+                $('.display-order-detail').html(res.data.template);
+            } else {
+                Swal.fire({html: response.msg, confirmButtonColor: '#3085d6', icon: 'error'});
+            }
+            ElementHelpers.enableElement(element);
+            ElementHelpers.hideOverlay();
+            // $('.display-order-detail')
+        }).catch(function(err, xhr, text){
+            AjaxErrorHandler(err, xhr, text, self);
+        });
+      
+    });
+});

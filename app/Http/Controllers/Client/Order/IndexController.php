@@ -22,8 +22,21 @@ class IndexController extends Controller
         ]);
     }
 
-    public function show()
+    public function show(Request $request,Order $order)
     {
-        return $this->toView('show');        
+        $data = [
+            'order' => $order,
+            'paymentTypes' =>  ['1' => 'Cash On Delivery', '2' => 'Mobile Payment'],
+            'customer' => $order->customer,
+            'listedVariations' => $order? $order->orderDetails()->with(['product', 'subProduct'])->orderBy('product_id', 'desc')->get(): []
+        ];
+
+        if ( $request->ajax() ) {            
+            return $this->jsonResponse('success', 'Successfully Fetched.', request('redirectUrl')??url()->previous(), [
+                'template' => view($this->baseViewPath . 'show_ajax',  $data)->render()
+            ]);
+        }
+
+        return $this->toView('show', $data);
     }
 }
