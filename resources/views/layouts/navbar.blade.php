@@ -32,13 +32,18 @@
        <!-- Profile nav -->
        <li class="nav-item dropdown d-none d-xl-inline-block">
         <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-          <span class="profile-text">{{ ucwords(auth()->user()->name) }}</span>
+          <span class="profile-text">{{ ucwords(auth()->user()->display_name) }}</span>
           <img class="img-xs rounded-circle" src="{{ asset('images/user-avatar.png') }}" alt="Profile image"> 
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-
-       
-          <!-- Logout -->
+      
+          <a href="{{ route('profile') }}" class="dropdown-item" >
+            <i class="mdi mdi-account-settings-variant"></i> {{ __('Profile') }}
+          </a>
+          <a href="{{ route('change_password') }}" class="dropdown-item" >
+            <i class="mdi mdi-textbox-password"></i> {{ __('Change Password') }}
+          </a>
+           <hr/>
           <a href="{{ route('logout') }}" class="dropdown-item"
             onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
@@ -47,6 +52,7 @@
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
           </form>
+          <!-- Logout -->
         </div>
       </li>
 

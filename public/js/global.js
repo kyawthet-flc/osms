@@ -1,5 +1,5 @@
 
-     "use strict";
+    //  "use strict";
 
      var ElementHelpers = {
         displayOverlay: function(msg) {
@@ -137,6 +137,7 @@
  
 
 $(function($){
+    if (typeof(MicroModal.init)  !== 'undefined') {
 
     MicroModal.init({
         onShow: modal => console.info(`${modal.id} is shown`), // [1]
@@ -151,7 +152,7 @@ $(function($){
         debugMode: false // [10]
     });
 
-    
+}
     $('.escaped-select').select2({
         escapeMarkup: function(data) {
             return data;
@@ -191,14 +192,14 @@ $(function($){
     //     imagesInputName: 'files'
     // });
      
-    $('.close-modal-box').on('click', function(){
-        // alert('s')
-        // var id = $(this).parents('div.micromodal-slide').attr('id');
-        // $('.modal.is-open').css({'display': 'none'});
-        // window.reload();
-        window.location.reload();
+    // $('.close-modal-box').on('click', function(){
+    //     // alert('s')
+    //     // var id = $(this).parents('div.micromodal-slide').attr('id');
+    //     // $('.modal.is-open').css({'display': 'none'});
+    //     // window.reload();
+    //     window.location.reload();
  
-    });
+    // });
     
     if( $('div[data-upload-id="myUniqueUploadId"]').length > 0 ) {
     // new FileUploadWithPreview("myUniqueUploadId");

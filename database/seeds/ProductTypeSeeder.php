@@ -16,7 +16,8 @@ class ProductTypeSeeder extends Seeder
         
         $product_types = array(
             array('name' => 'Cloth', 'desc' => ''),
-            array('name' => 'Eletronic', 'desc' => '')
+            array('name' => 'Cosmetic', 'desc' => ''),
+            array('name' => 'Eletronic', 'desc' => ''),
         );
 
         foreach($product_types as $item) {

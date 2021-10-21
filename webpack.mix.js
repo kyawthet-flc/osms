@@ -32,3 +32,22 @@ const mix = require('laravel-mix');
 mix.js([
     'resources/js/app.js'
 ], 'public/js/app.js');
+
+mix.scripts([
+
+	// 'public/assets/vendors/js/vendor.bundle.base.js',
+	// 'public/assets/vendors/js/vendor.bundle.addons.js',
+	// 'public/assets/js/shared/wizard.js',
+	// 'public/assets/vendors/daterangepicker/moment.min.js',
+	// 'public/assets/vendors/daterangepicker/daterangepicker.js',
+	'public/assets/js/shared/off-canvas.js',
+	// 'public/assets/js/shared/hoverable-collapse.js',
+	'public/assets/js/shared/misc.js',
+
+	// 'public/assets/js/shared/settings.js',
+	// 'public/assets/js/shared/todolist.js',
+	// 'public/assets/js/shared/select2.js',
+
+	// 'public/assets/js/shared/formpickers.js',
+
+], 'public/js/dashboard.js');

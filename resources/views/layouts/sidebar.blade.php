@@ -7,7 +7,7 @@
             <img src="{{ asset('images/user-avatar.png') }}" alt="profile image">
           </div>
           <div class="text-wrapper">
-            <p class="profile-name">{{ ucwords(auth()->user()->name) }}</p>
+            <p class="profile-name">{{ ucwords(auth()->user()->display_name) }}</p>
             <!-- <div>
               <span class="status-indicator online"></span>
               <small class="designation text-muted">Role Level</small>

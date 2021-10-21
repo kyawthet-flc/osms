@@ -2083,9 +2083,7 @@ try {
 
 
   window.Swal = Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-
-  var MicroModal = __webpack_require__(/*! micromodal */ "./node_modules/micromodal/dist/micromodal.es.js");
-
+  window.MicroModal = __webpack_require__(/*! micromodal */ "./node_modules/micromodal/dist/micromodal.es.js");
   window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
 } catch (e) {}
 /**

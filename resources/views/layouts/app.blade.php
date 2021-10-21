@@ -60,6 +60,9 @@
               <!-- <div class="row mb-3">
                 <div class="col-md-12">Notice BOX</div>
               </div> -->
+              <!-- For displaying detail -->
+<div class="col-md-12 display-detail-on-xhr mb-3"></div>
+
                 @include('layouts.message')                
                 @yield('content')
               </div>

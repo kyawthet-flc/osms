@@ -3,9 +3,6 @@
 @section('content')
 <x-utils.card :attrs="['title' => 'List']">
 
-<!-- For displaying order detail -->
-<div class="col-md-12 display-order-detail mb-3"></div>
-
     <x-utils.data-table :ths="[
         'No.', 
         'Tracking No.', 

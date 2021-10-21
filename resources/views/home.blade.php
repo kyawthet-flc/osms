@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') SME Member Extension @stop
+@section('title') My Profile @stop
 
 @section('style')
 <style>

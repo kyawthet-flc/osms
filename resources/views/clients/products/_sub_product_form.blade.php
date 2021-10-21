@@ -1,10 +1,10 @@
 <!-- PAGENO: OSMS-012 -->
-<div class="modal micromodal-slide" id="modal-1" aria-hidden="false">
+<div class="modal micromodal-slide temp-modal-container" id="modal-1" aria-hidden="false">
     <div class="modal__overlay" tabindex="-1" data-micromodal-close>
       <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
         <header class="modal__header">
           <h2 class="modal__title" id="modal-1-title">Add Product Variations</h2>
-          <button class="modal__close close-modal-box" data-custom-close="modal-1" aria-label="Close modal" data-micromodal-close></button>
+          <button onclick="$('.temp-modal-container').remove();" class="modal__close close-modal-box" data-custom-close="modal-1" aria-label="Close modal" data-micromodal-close></button>
         </header>
         <main class="modal__content w-100" id="modal-1-content">
        
@@ -120,7 +120,7 @@
 
           </main>
         <footer class="modal__footer">
-          <button class="modal__btn close-modal-box" data-custom-close="modal-1" data-micromodal-close aria-label="Close this dialog window">Cancel</button>
+          <button onclick="$('.temp-modal-container').remove();" class="modal__btn close-modal-box" data-custom-close="modal-1" data-micromodal-close aria-label="Close this dialog window">Cancel</button>
         </footer>
       </div>
     </div>

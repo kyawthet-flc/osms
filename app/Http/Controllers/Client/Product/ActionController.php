@@ -13,7 +13,7 @@ class ActionController extends Controller
 {
     protected $baseViewPath = 'clients.products.';
 
-    protected $status = ['draft' => 'Draft', 'on_sale' => 'On Sale', 'inactive' => 'Inactive'];
+    protected $status = ['draft' => 'Draft', 'on_sale' => 'On Sale', 'inactive' => 'Close'];
 
     public function __construct()
     {

@@ -194,7 +194,7 @@ $(function(){
                     ElementHelpers.enableElement(self);
                     ElementHelpers.hideOverlay();
 
-                    $(document).find('.sub-product-form-wrapper').html(res.data.form);
+                    $(document).find('.display-detail-on-xhr').html(res.data.form);
                     $('script[loaded="initial"]').remove();
                     $('script[loaded="secondary"]').remove();
                     $(document).find('.micromodal-slide').addClass('is-open');
@@ -429,11 +429,11 @@ $(function(){
             },
         }).then(function(res){
             if( res.status === 'success') {
-                $('.display-order-detail').html(res.data.template);
+                $('.display-detail-on-xhr').html(res.data.template);
             } else {
                 Swal.fire({html: response.msg, confirmButtonColor: '#3085d6', icon: 'error'});
             }
-            ElementHelpers.enableElement(element);
+            ElementHelpers.enableElement(self);
             ElementHelpers.hideOverlay();
             // $('.display-order-detail')
         }).catch(function(err, xhr, text){

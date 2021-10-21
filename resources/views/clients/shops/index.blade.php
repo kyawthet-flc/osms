@@ -12,14 +12,14 @@
             <td>{{ $list->status }}</td>
             <td>
               <a class="btn btn-sm btn-outline-warning" href="{{ route('shop.edit', ['shop' => $list, 'redirectUrl' => current_url() ]) }}">
-                <i class="mdi mdi-pencil-box"></i>Edit
+                <i class="mdi mdi-pencil-box"></i>
               </a><br/>
               <a class="btn mt-1 btn-sm btn-outline-danger" 
                   del-attr="delete-item" 
                   confirmationText="Are you sure to delete?"
                   del-redirect-url="{{ url()->current() }}"
                   href="{{ route('shop.delete', ['shop' => $list, 'redirectUrl' => current_url() ]) }}">
-                <i class="mdi mdi-delete"></i>Delete
+                <i class="mdi mdi-delete"></i>
               </a>
             </td>
         </tr>

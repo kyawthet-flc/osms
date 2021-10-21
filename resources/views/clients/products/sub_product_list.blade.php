@@ -3,20 +3,7 @@
 @section('content')
 <x-utils.card :attrs="['title' => '<b>'.$product->name.'</b> - Product Variations', 'backUrl' => (request('redirectUrl')?? route('product.index')) ]">
     <div class="row justify-content-center pt-3 pb-5">
-        
-    {{--  <div class="col-md-12 mb-3">
-            <button class="btn btn-success" data-micromodal-trigger data-custom-open="modal-1">
-            <i class="mdi mdi-plus-circle"></i> Add New Variation
-            </button>
-        </div>
-        <div class="col-md-12 sub-product-form-wrapper mb-3">
-            @include('clients.products._sub_product_form',[
-                'action' => route('product.sub_product.store',['sku' => $product->sku]), 
-                'method' => 'post', 
-                'submitLabel' => 'Create', 
-                'confirmationText' => 'Are you sure to create?' 
-        </div> 
-        --}}
+
         <div class="col-md-12 mb-3">
             <a class="btn btn-success"  href="{{ route('product.get_sub_product_form', 
                 ['sku' => $product->sku, 'redirectUrl' => current_url() ]) }}" edit-attr="edit-sub-product"
@@ -25,8 +12,6 @@
             <i class="mdi mdi-plus-circle"></i> Add New Variation
             </a>
         </div>
-        <!-- For Creating and Editting Sub Product -->
-        <div class="col-md-12 sub-product-form-wrapper mb-3"></div>
 
        <div class="col-md-12">
         <x-utils.data-table :ths="[
@@ -35,6 +20,7 @@
            'Size', 
            'Color', 
            'Bought/ Avaiable(Quantity) - Unit', 
+           'Quantity Left', 
            'Price Bought/ Price Sold',
            'Action',
         ]">
@@ -47,18 +33,19 @@
             <td>
             {{ $list->quantity_bought }}/ {{ $list->quantity_avaiable }} - {{ $list->unit }}
             </td>
+            <td>{{ $list->quantity_left }}</td>
             <td>{{ $list->price_bought }}/ {{ $list->price_sold }}</td>
             <td>
               <a class="btn btn-sm btn-outline-warning" data-micromodal-trigger="modal-1" href="{{ route('product.get_sub_product_form', 
                 ['sku' => $list->product->sku, 'subProduct' => $list, 'redirectUrl' => current_url()]) }}" edit-attr="edit-sub-product" data-micromodal-trigger="#"  confirmationText="Are you sure to edit?">
-                <i class="mdi mdi-pencil-box"></i>Edit
+                <i class="mdi mdi-pencil-box"></i>
               </a><br/>
               <a class="btn mt-1 btn-sm btn-outline-danger" 
                   del-attr="delete-item" 
                   confirmationText="Are you sure to delete?"
                   del-redirect-url="{{ url()->current() }}"
                   href="{{ route('product.sub_product.delete', ['subProduct' => $list, 'redirectUrl' => current_url() ]) }}">
-                <i class="mdi mdi-delete"></i>Delete
+                <i class="mdi mdi-delete"></i>
               </a>
             </td>
         </tr>

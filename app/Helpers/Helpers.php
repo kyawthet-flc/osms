@@ -79,12 +79,11 @@ if ( !function_exists("js_assets") )
 	{
 		$js = array(
 			'app.js',
-			'lib-one.js',
-			'lib-two.js',
+			'dashboard.js',
 			'jquery.magnific-popup.min.js',
 			'file-upload-with-preview.min.js',
 			'global.js',
-			'shop.js'
+			'shop.js',
 		);
 
 		$html = '';
