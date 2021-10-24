@@ -67,16 +67,14 @@ html,body,p,div,*,table,h1,h2,h3,h4,h5,h6,a,tr,th,td,thead,tbody {
 .sub-label {
     font-size: 11px !important;
 }
-
-.modal__container {
-    margin-top: 7px;
-    z-index: 1032;
+.modal {
+    z-index: 1041 !important;
 }
-.micromodal-slide.is-open {
-    z-index: 1032;
+.mfp-bg {
+    z-index: 1042 !important;
 }
 .mfp-content {
-    z-index: 1033 !important;
+    z-index: 1043 !important;
 }
 
 .exiting-file-wrapper {
@@ -101,4 +99,61 @@ html,body,p,div,*,table,h1,h2,h3,h4,h5,h6,a,tr,th,td,thead,tbody {
 
 th {
     font-weight: 700 !important;
+}
+
+.navbar.default-layout {
+    background: #4a4a4a !important;
+}
+
+.nav .nav-item.dropdown .navbar-dropdown, .navbar-nav .nav-item.dropdown .navbar-dropdown {
+    border-radius: 15px !important;
+    margin-top: 3px;
+    padding: 0 0 10px !important;
+    background-color: #fafafa;
+}
+.nav .nav-item.dropdown .navbar-dropdown .dropdown-item, .navbar-nav .nav-item.dropdown .navbar-dropdown .dropdown-item {
+    padding: 10px 13px !important;
+    font-size: 13px;
+    margin-top: 4px;
+}
+.card {
+    background-color: #fafafa;
+}
+.card .card-body {
+    padding-top: 20px !important;
+}
+.card .card-header {
+    padding: 10px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #d0d0d0;
+}
+.card .card-header .card-title {
+    color: #4a4a4a !important;
+}
+.sidebar .nav .nav-item.nav-profile .nav-link {
+    padding: 20px 0 3px !important;
+    height: 59px;
+    font-size: 21px;
+}
+.profile-name {
+    font-size: 1rem;
+    color: #4a4a4a;
+}
+
+.user-wrapper {
+    font-size: 0.81rem;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+.btn-success,
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:link ,
+.btn-success:active ,
+.btn-success:visited,
+.btn-success:visited:hover {
+    border-color: #4a4a4a !important;
+    background-color: #4a4a4a !important;
+    box-shadow: none !important;
 }

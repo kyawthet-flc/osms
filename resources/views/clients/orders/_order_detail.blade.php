@@ -44,6 +44,12 @@
             <tr>
                 <td colspan="6" style="text-align: center;">Total Price - {{ $order->total_amount }} + {{ $order->deli_fee?? 0 }}(Delivery Fee) = <b>{{ $order->total_amount + ($order->deli_fee?? 0) }}</b></td>
             </tr>
+            <tr>
+                <td colspan="6" class="text-right">
+                    <!-- <button class="btn btn-success"><span class="mdi mdi-file-pdf"></span> Print Receipt</button> -->
+                    <a class="btn btn-success" href="{{ route('document.order.print',['order' => $order, 'type' => 'pdf']) }}"><span class="mdi mdi-file-pdf"></span> Print Receipt</a>
+                </td>
+            </tr>
         </tbody>
     </table>
     </div>

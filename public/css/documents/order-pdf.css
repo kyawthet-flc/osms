@@ -1,0 +1,193 @@
+body {
+    font-family:pyidaungsu, Helvetica, sans-serif;
+    font-size: 12.5pt;
+    line-height: 22px;
+    text-align: justify;
+}
+page[size="A4"] {
+    background: white;
+    width: 21cm;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    border: 1.25cm solid #000;
+}
+@media print {
+    body, page[size="A4"] {
+        margin: 0;
+        box-shadow: 0;
+        border: none;
+    }
+}
+
+@page {
+    background: url('images/osms-small-icon-ts.png') no-repeat 0 100%;
+    background-image-resize: 3;
+    /*background-image-resize: 6;*/
+    header: html_pageheader;
+    footer: html_footer;  
+}
+
+@page :first {
+    footer: html_first_footer;
+    margin-top: 30mm;
+}
+
+@page page-landscape {
+    size: landscape;
+    header: html_pageheader;
+    footer: html_footer;
+    margin-top: 45mm;
+}
+
+div.landscape { 
+    page: page-landscape; 
+}
+
+.align-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.union-title-text {
+    font-size: 16px;  
+    padding-top: 7px;
+    line-height: 27px;
+    color: #000;
+    height: 90px;
+    margin-bottom: 0;
+}
+
+.union-title-text span {
+    font-family: pyidaungsu;
+    display: block; 
+}
+
+h3 {
+    font-size: 16pt;
+    margin: 0;
+}
+
+.body p {
+    margin:0
+}
+
+.clear {
+    clear:both;
+}
+
+
+
+.processing-date-wrapper {
+    padding: 0;
+    height: auto;
+    margin-top: 0;
+    width: 100%;
+}
+
+.processing-date-wrapper .order-no {
+    width: 49%;
+    float: left;
+    text-align: left;
+    font-size: 11px;
+}
+
+.processing-date-wrapper .date-of-processed {
+    width: 49%;
+    float: right;
+    font-size: 11px;
+    text-align: right;
+}
+
+.customer-info-wrapper {
+    padding: 5px 0 9px;
+    height: auto;
+    margin-top: 2px;
+    /* border-bottom: 1px dashed #000000; */
+}
+.customer-info-wrapper .customer-table {
+    margin-top: 0;
+    width: 1100px;
+    overflow:no-wrap;
+    border-collapse:collapse;
+    vertical-align:top;
+    width:100%;
+}
+.customer-table tr td, .customer-table tr th {
+    font-size: 11px;
+    padding: 4px 0;
+}
+.customer-table-tdth-left {
+    width: 97px;
+}
+
+.order-detail-wrapper {
+    padding: 3px 0 4px;
+    height: auto;
+    margin-top: 10px;
+    background-color: #fefefe;
+}
+.order-detail-wrapper .order-table  {
+    margin-top: 0;
+    width: 1100px;
+    overflow:no-wrap;
+    height: auto;
+    border-collapse:collapse;
+    vertical-align:top; 
+    width:100%;
+}
+
+.order-table tr td, .order-table tr th {
+    font-size: 11px;
+    padding: 7px 3px 5px;
+}
+
+/* 
+Footer
+*/
+.footer {
+    height:50px;width: 100%;display: block;padding: 0;text-align: right;background-color: transparent;margin-bottom: 2px;
+}
+.footer-qr-code {
+    float: right;height:50px;width:70px;
+}
+
+.footer-page-no{
+    text-align: center;display: block;font-size: 9px;background-color: transparent;height: 20px;
+}
+.first-footer {
+    height:50px;
+    width: 100%;
+    display: block;
+    padding: 0;
+    text-align: right;
+    background-color: transparent;
+    margin-bottom: 2px;
+}
+.first-footer-qr-code {
+    float: right;
+    height:50px;
+    width:70px;
+}
+.first-footer-page-no {
+    text-align: center;
+    display: block;
+    font-size: 9px;
+    background-color: transparent;
+    height: 20px;
+}

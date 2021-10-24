@@ -81,33 +81,7 @@ class User extends Authenticatable
         });
 
     }
-
-    public function isOfficer()
-    {
-        return ($this->cachedRoles()->first()->parent_id??0) === 2;
-    }
-
-    public function isDirectorGeneral()
-    {
-        return  $this->isOfficer() && ($this->cachedRoles()->first()->id??0) === Role::$directorGeneralRoleId;
-    }
-
-    public function isDeputyDirectorGeneral()
-    {
-        return  $this->isOfficer() && ($this->cachedRoles()->first()->id??0) === Role::$deputyDirectorGeneralRoleId;
-    }
-
-    // to be removed.
-    public function isDeputyisDirectorGeneral()
-    {
-        return  $this->isOfficer() && ($this->cachedRoles()->first()->id??0) === Role::$deputyDirectorGeneralRoleId;
-    }
-
-    public function isDirector()
-    {
-        return  $this->isOfficer() && ($this->cachedRoles()->first()->id??0) === Role::$directorRoleId;
-    }
-
+    
     public function isSuperAdmin()
     {
         return ($this->cachedRoles()->first()->id??0) === 1;

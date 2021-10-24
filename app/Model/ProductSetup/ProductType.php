@@ -8,4 +8,9 @@ class ProductType extends Model
 {
     protected $guarded = [];
 
+    public function productAttributes()
+    {
+        $this->hasMany(ProductAttr::class, 'entity_id', 'id')->whereEntityName('product_type');
+    }
+
 }

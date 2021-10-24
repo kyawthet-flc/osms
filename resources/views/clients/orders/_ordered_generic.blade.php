@@ -93,4 +93,11 @@
         ]" 
     />
 </div>
+<div class="col-md-4">
+    <x-forms.textarea :attrs="[
+        'name' => 'remark', 
+        'value' => $order->remark
+        ]" 
+    />
+</div>
 <input type="hidden" name="redirectUrl" value="{{ url()->full() }}" />

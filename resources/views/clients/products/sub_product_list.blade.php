@@ -27,7 +27,7 @@
         @foreach ($subProducts as $k => $list)
         <tr>
             <td>{{ $k+1 }}.</td>
-            <td>{{ $list->sub_sku }}</td>
+            <td>{{ $product->sku }}-SUB{{ $list->sub_sku }}</td>
             <td>{{ $list->size }}</td>
             <td>{{ $list->color }}</td>
             <td>
@@ -36,7 +36,7 @@
             <td>{{ $list->quantity_left }}</td>
             <td>{{ $list->price_bought }}/ {{ $list->price_sold }}</td>
             <td>
-              <a class="btn btn-sm btn-outline-warning" data-micromodal-trigger="modal-1" href="{{ route('product.get_sub_product_form', 
+              <a class="btn btn-sm mt-1 btn-outline-warning" data-micromodal-trigger="modal-1" href="{{ route('product.get_sub_product_form', 
                 ['sku' => $list->product->sku, 'subProduct' => $list, 'redirectUrl' => current_url()]) }}" edit-attr="edit-sub-product" data-micromodal-trigger="#"  confirmationText="Are you sure to edit?">
                 <i class="mdi mdi-pencil-box"></i>
               </a><br/>

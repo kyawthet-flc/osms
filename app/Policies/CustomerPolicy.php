@@ -7,18 +7,18 @@ use App\User;
 
 class CustomerPolicy
 {
-    public function edit(User $user, Customer $shop)
+    public function edit(User $user, Customer $customer)
     {
-        return in_array($shop->id, $user->shops->pluck('id')->toArray());
+        return in_array($customer->shop_id, $user->shops->pluck('id')->toArray());
     }
 
-    public function update(User $user, Customer $shop)
+    public function update(User $user, Customer $customer)
     {
-        return in_array($shop->id, $user->shops->pluck('id')->toArray());
+        return in_array($customer->shop_id, $user->shops->pluck('id')->toArray());
     }
 
-    public function delete(User $user, Customer $shop)
+    public function delete(User $user, Customer $customer)
     {
-        return in_array($shop->id, $user->shops->pluck('id')->toArray());
+        return in_array($customer->shop_id, $user->shops->pluck('id')->toArray());
     }
 }

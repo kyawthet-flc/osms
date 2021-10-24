@@ -56,6 +56,11 @@ class SubProduct extends Model
         return $this->hasMany(SubProductImage::class);
     }
 
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
+
     public function createSubSkuCode()
     {
         if ( is_null($this->sub_sku) ) {

@@ -42,7 +42,7 @@ class HomeController extends Controller
 
     public function changePassword()
     {
-        return view('auth.change-password',['user' => auth()->user() ]);
+        return view('auth.change_password',['user' => auth()->user() ]);
     }
 
     public function storeChangedPassword(ChangePasswordRequest $request)

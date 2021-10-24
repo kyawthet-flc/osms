@@ -3,16 +3,17 @@
     <li class="nav-item nav-profile">
       <div class="nav-link">
         <div class="user-wrapper">
-          <div class="profile-image">
-            <img src="{{ asset('images/user-avatar.png') }}" alt="profile image">
+          <!-- <div class="profile-image">
+            <img src="{{ asset('images/osms-small-icon-ts.png') }}" alt="profile image">
           </div>
           <div class="text-wrapper">
             <p class="profile-name">{{ ucwords(auth()->user()->display_name) }}</p>
-            <!-- <div>
+            <div>
               <span class="status-indicator online"></span>
               <small class="designation text-muted">Role Level</small>
-            </div> -->
-          </div>
+            </div>
+          </div> -->
+          Online Shop Management System
         </div> 
       </div>
     </li>

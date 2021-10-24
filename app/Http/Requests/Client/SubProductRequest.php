@@ -27,7 +27,7 @@ class SubProductRequest extends FormRequest
             'color' => 'required',
             'size' => 'required',
 
-            'quantity_bought' => 'required|numeric',
+            // 'quantity_bought' => 'required|numeric',
             'quantity_avaiable' => 'required|numeric',
             // 'quantity_left' => 'required',
             'unit' => 'required',

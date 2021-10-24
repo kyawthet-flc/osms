@@ -5,7 +5,6 @@ namespace App\Services;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use Ramsey\Uuid\Uuid;
-
 use App\Model\File;
 
 class FileUploader

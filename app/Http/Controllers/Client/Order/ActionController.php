@@ -185,6 +185,7 @@ class ActionController extends Controller
             'status' => $request->status,
             'paid_status' => $request->paid_status,
             'payment_type_id' => $request->payment_type_id,
+            'remark' => $request->remark,
             'deli_fee' => $request->deli_fee,
         ];
     }

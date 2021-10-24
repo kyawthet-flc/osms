@@ -54,7 +54,7 @@ class SubProductController extends Controller
     {
         $product = Product::whereSku($sku)->first();
 
-        if ( $subProduct && $subProduct->update($this->parameters($request)) ) {
+        if ( $subProduct && $subProduct->update($this->parameters($request,  $subProduct)) ) {
             $subProduct->handleSubProductImages();
             return $this->jsonResponse('success', 'Successfully update Sub Product.', request('redirectUrl')??url()->previous());
         } else {
@@ -66,14 +66,27 @@ class SubProductController extends Controller
        
     }
 
-    public function parameters($request)
+    public function parameters($request, $subProduct=null)
     {
+        $qtyAvaiable = $request->quantity_avaiable;
+        $qtyLeft = $request->quantity_avaiable;
+
+        if ( $subProduct ) {
+            if ( $qtyAvaiable > $subProduct->quantity_avaiable ) {
+                $qtyLeft = $subProduct->quantity_left + ($qtyAvaiable - $subProduct->quantity_avaiable);
+            } else if ( $qtyAvaiable < $subProduct->quantity_avaiable ) {
+                $qtyLeft = $subProduct->quantity_left - ( $subProduct->quantity_avaiable - $qtyAvaiable);
+            } else {
+                $qtyLeft = $subProduct->quantity_left;
+            }
+        }
+
         return [
             "color" => $request->color,
             "size" => $request->size,
-            "quantity_bought" => $request->quantity_bought,
-            "quantity_avaiable" => $request->quantity_avaiable,
-            "quantity_left" => $request->quantity_avaiable,
+            "quantity_bought" => $qtyAvaiable,
+            "quantity_avaiable" => $qtyAvaiable,
+            "quantity_left" => $qtyLeft,
             "unit" => $request->unit,
             "price_bought" => $request->price_bought,
             "price_original" => $request->price_bought,

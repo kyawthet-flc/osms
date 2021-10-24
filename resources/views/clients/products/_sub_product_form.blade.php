@@ -1,12 +1,5 @@
 <!-- PAGENO: OSMS-012 -->
-<div class="modal micromodal-slide temp-modal-container" id="modal-1" aria-hidden="false">
-    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-      <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-        <header class="modal__header">
-          <h2 class="modal__title" id="modal-1-title">Add Product Variations</h2>
-          <button onclick="$('.temp-modal-container').remove();" class="modal__close close-modal-box" data-custom-close="modal-1" aria-label="Close modal" data-micromodal-close></button>
-        </header>
-        <main class="modal__content w-100" id="modal-1-content">
+<div class="col-md-10 offset-md-1 pt-5">
        
         <x-forms.form-tag :attrs="['id' => 'shop-form', 'class' => 'shop-form', 'method' => $method, 'action' => $action ]">
           <x-forms.select-with-value-value :attrs="[
@@ -28,18 +21,12 @@
           <div class="form-group">
               <label>Quantity <span class="required-text-block">Required</span></label>
              <div class="row">
-             <div class="col-md-4">
-                 <label class="sub-label mt-2">Bought Quantity</label>
-                <input id="quantity_bought" number="yes" value="{{ $subProduct->quantity_bought }}" name="quantity_bought" class="form-control" />
-              </div>
+            
               <div class="col-md-4">
                  <label class="sub-label mt-2">Avaiable Quantity</label>
                 <input id="quantity_avaiable" number="yes" value="{{ $subProduct->quantity_avaiable }}" name="quantity_avaiable" class="form-control" />
               </div>
-              <!-- <div class="col-md-6 mt-2">
-                <label class="sub-label">Left Quantity</label>
-                <input id="quantity_left" name="quantity_left" class="form-control" />
-              </div> -->
+             
               <div class="col-md-4">
                 <label class="sub-label mt-2">Unit</label>
                 <input id="unit" name="unit" class="form-control" value="{{ $subProduct->unit }}" placeholder="Box/ Item/ " />
@@ -117,11 +104,5 @@
           <x-forms.button confirmationText='{{ $confirmationText?? "Are you sure to submit?" }}'
           :attrs="['name' => 'submit', 'class'=> 'common-sb-btn btn btn-success', 'value' => '', 'placeholder' => '', 'label' => $submitLabel]" />
       </x-forms.form-tag>
-
-          </main>
-        <footer class="modal__footer">
-          <button onclick="$('.temp-modal-container').remove();" class="modal__btn close-modal-box" data-custom-close="modal-1" data-micromodal-close aria-label="Close this dialog window">Cancel</button>
-        </footer>
-      </div>
-    </div>
+ 
   </div>

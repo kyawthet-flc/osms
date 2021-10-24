@@ -45,6 +45,16 @@ class Product extends Model
         return $this->hasMany(SubProduct::class);
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'og', 'order_id');
+    }
+
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
+
     public function createSkuCode()
     {
         if ( is_null($this->sku) && is_null($this->sku_serial)  ) {

@@ -30,7 +30,8 @@ class CreateOrdersTable extends Migration
 
             $table->enum('paid_status',['unpaid', 'paid'])->default('unpaid');
             $table->tinyInteger('payment_type_id')->nullable();
-
+            $table->mediumText('remark')->nullable();
+            $table->string('receipt_id')->nullable();
             $table->timestamps();
         });
     }

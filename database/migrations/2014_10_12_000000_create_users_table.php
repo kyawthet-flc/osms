@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('login_id')->nullable()->unique();
             $table->string('phone')->nullable()->unique();
             $table->string('password')->nullable();
-            $table->enum('login_by',['facebook', 'google'])->nullable();
+            $table->enum('login_by',['facebook', 'google', 'registration'])->nullable();
             $table->ipAddress('ip')->nullable();
             $table->enum('login_status',['logged_in', 'logged_out'])->default('logged_in');
             $table->enum('status',['active', 'inactive'])->default('active');

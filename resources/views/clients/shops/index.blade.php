@@ -11,7 +11,7 @@
             <td>{{ $list->phone }}</td>
             <td>{{ $list->status }}</td>
             <td>
-              <a class="btn btn-sm btn-outline-warning" href="{{ route('shop.edit', ['shop' => $list, 'redirectUrl' => current_url() ]) }}">
+              <a class="btn btn-sm mt-1 btn-outline-warning" href="{{ route('shop.edit', ['shop' => $list, 'redirectUrl' => current_url() ]) }}">
                 <i class="mdi mdi-pencil-box"></i>
               </a><br/>
               <a class="btn mt-1 btn-sm btn-outline-danger" 

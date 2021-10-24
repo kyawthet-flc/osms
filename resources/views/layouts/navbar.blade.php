@@ -1,11 +1,11 @@
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 
-  <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="background: #128EFB;">
-    <a class="navbar-brand brand-logo" href="{{ url('admin.index') }}">
-      <img src="{{ asset('images/fda-logo.png') }}" alt="logo" style="height: 35px;width: 35px" />
+  <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="background: #4a4a4a;">
+    <a class="navbar-brand brand-logo" href="{{ route('home') }}">
+      <img src="{{ asset('images/osms-small-icon-ts.png') }}" alt="logo" style="height: 30px;width: 30px" />
     </a>
-    <a class="navbar-brand brand-logo-mini" href="{{ url('admin.index') }}">
-      <img  src="{{ asset('images/fda-logo.png') }}" alt="logo" style="height: 35px;width: 35px" /> </a>
+    <a class="navbar-brand brand-logo-mini" href="{{ route('home') }}">
+      <img  src="{{ asset('images/osms-small-icon-ts.png') }}" alt="logo" style="height: 27px;width: 27px" /> </a>
   </div>
 
   <div class="navbar-menu-wrapper d-flex align-items-center">

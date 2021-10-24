@@ -17,14 +17,14 @@
     <div class="row mb-2" style="border:1px solid #dedede;background-color: #efefef;border-radius: 3px;padding: 20px 5px 0;">
         @include('clients.orders._ordered_customer')
     </div>
-    <div class="row mb-2 d-nonde" style="border:1px solid #dedede;background-color: #efefef;border-radius: 3px;padding: 20px 5px 0;">
-        @include('clients.orders._ordered_generic')
-    </div>
     <div class="row mb-2 d-noned" style="border:1px solid #dedede;background-color: #efefef;border-radius: 3px;height: auto;min-height: 160px;padding: 20px 5px 0;">
         <!-- Order Variation Box -->
         @include('clients.orders._ordered_variation_box')
         <!-- Order Variation List -->
         @include('clients.orders._ordered_variation_list')
+    </div>
+    <div class="row mb-2 d-nonde" style="border:1px solid #dedede;background-color: #efefef;border-radius: 3px;padding: 20px 5px 0;">
+        @include('clients.orders._ordered_generic')
     </div>
     <x-forms.submit confirmationText='{{ $confirmationText?? "Are you sure to submit?" }}' :attrs="['name' => 'submit', 'class'=> 'common-sb-btn mt-3', 'value' => '', 'placeholder' => '', 'label' => $submitLabel]" />
 </x-forms.form-tag>
@@ -34,9 +34,11 @@
     var OrderVariation = new OrderProductVariation("{{ route('order.save_product_variations') }}")
     OrderVariation.init(); 
 
-    $('.datepicker').datepicker({ 
+    $(document).on('ready',function () {
+        $('.datepicker').datepicker({ 
         format: 'dd-mm-yyyy',
         modal: true
+    });
     });
 </script>
 @endsection

@@ -6,3 +6,5 @@
     <p><span>Description</span>: <b>{{ $product->desc }}</b></p>
 </div>
 </div>
+
+@include('clients.products._sub_product_list')

@@ -194,10 +194,13 @@ $(function(){
                     ElementHelpers.enableElement(self);
                     ElementHelpers.hideOverlay();
 
-                    $(document).find('.display-detail-on-xhr').html(res.data.form);
+                    // $(document).find('.display-detail-on-xhr').html(res.data.form);
+                    var modalContainer = $('.modal-container');
+                    modalContainer.find('.display-detail-on-xhr').html(res.data.form);
+                    modalContainer.modal("show")
+
                     $('script[loaded="initial"]').remove();
                     $('script[loaded="secondary"]').remove();
-                    $(document).find('.micromodal-slide').addClass('is-open');
                     $('head').append(res.data.assets.js);
                 }
                 // AjaxSuccessHandler(res, self);
@@ -429,7 +432,9 @@ $(function(){
             },
         }).then(function(res){
             if( res.status === 'success') {
-                $('.display-detail-on-xhr').html(res.data.template);
+                var modalContainer = $('.modal-container');
+                modalContainer.find('.display-detail-on-xhr').html(res.data.template);
+                modalContainer.modal("show")
             } else {
                 Swal.fire({html: response.msg, confirmButtonColor: '#3085d6', icon: 'error'});
             }

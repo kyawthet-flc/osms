@@ -17,7 +17,6 @@ try {
     require('chart.js');
     // require('gijgo');
     window.Swal = Swal = require('sweetalert2');
-    window.MicroModal = require('micromodal');
     window.toastr = require('toastr');
     
 } catch (e) {}
