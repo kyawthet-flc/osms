@@ -7,7 +7,7 @@
               'name' => 'size', 
               'selected' => $subProduct->size, 
               'label' => 'Size',
-              'list' => ['XL', 'X', 'M', 'S', 'X', 'XL'], 
+              'list' => $sizes, 
               'required' => 'required'
           ]" />
           <x-forms.select-with-value-value :attrs="[
@@ -15,7 +15,7 @@
               'name' => 'color', 
               'selected' => $subProduct->color, 
               'label' => 'Color',
-              'list' => ['Red', 'Green', 'Yellow'], 
+              'list' => $colors, 
               'required' => 'required'
           ]" />
           <div class="form-group">
