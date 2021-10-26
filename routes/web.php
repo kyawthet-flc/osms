@@ -13,3 +13,6 @@ Route::post('storeChangedPassword', 'HomeController@storeChangedPassword')->name
 
 Route::get('profile', 'HomeController@profile')->name('profile');
 Route::post('updateProfile', 'HomeController@updateProfile')->name('update_profile');
+
+Route::get('contact', 'HomeController@contact')->name('contact');
+Route::post('contact', 'HomeController@saveSontact')->name('save_contact');

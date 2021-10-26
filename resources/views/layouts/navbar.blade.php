@@ -15,16 +15,16 @@
     <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
       
     </ul>
-    <ul class="navbar-nav navbar-nav-right">
+    <ul class="navbar-nav navbar-nav-left">
       <li class="nav-item dropdown ml-4">
-        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-          <i class="mdi mdi-bell-outline"></i>
-          <span class="count bg-success">0</span>
+        <a style="color: #fafafa;" class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+          <i class="mdi mdi-bell-ring"></i>
+          <span class="count bg-danger">0</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
           <a class="dropdown-item py-3 border-bottom" href="{{url('admin_unread_notifications')}}">
             <p class="mb-0 font-weight-medium float-left">You have  0 new notifications </p>
-            <span class="badge badge-pill badge-primary float-right">View all</span>
+            <span class="badge badge-pill badge-danger float-right">View all</span>
           </a>
         </div>
       </li>
@@ -55,6 +55,13 @@
           <!-- Logout -->
         </div>
       </li>
+
+      <li class="nav-item ml-4">
+        <a style="color: #fafafa;" class="nav-link" href="#">
+          <i class="mdi mdi-contact-mail"></i> Contact
+        </a>
+      </li>
+       
 
     </ul>
     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
