@@ -78,7 +78,7 @@ $('.nav-link[href="'+window.location.href+'"]').addClass('active');
 $('.sidebar-nav a[href="'+window.location.href+'"]').parent().addClass('sidebar-active');
 
 //summernote start
-$('.summernote-lib').summernote({
+$('.summernote').summernote({
     height: 200,
     toolbar: [
         ['style', ['style']],

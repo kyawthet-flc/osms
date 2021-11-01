@@ -82,7 +82,6 @@ class ActionController extends Controller
         $validated['dis_id'] = $township->district->id;
         $validated['div_id'] = $township->district->division->id;
 
-        // $validated['logo'] = (new FileUploader('osms'))->uploadSingle($request->logo, 'osms_folder');
         if ( $request->hasFile('logo') ) {
            $validated['logo'] = (new FileUploader())->uploadSingle($request->logo, 'shop_logos');
         } else {

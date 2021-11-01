@@ -69,3 +69,21 @@
     </ul>
     </div>
 </li>
+
+<li class="nav-item">      
+    <a class="nav-link" data-toggle="collapse" href="#supplier-dropdown" aria-expanded="false" aria-controls="supplier-dropdown">
+    <i class="menu-icon mdi mdi-account-multiple"></i>
+    <span class="menu-title">Supplier</span>
+    <i class="menu-arrow"></i>
+    </a>
+    <div class="collapse show" id="supplier-dropdown">
+    <ul class="nav flex-column sub-menu">
+        <li class="nav-item" {!! is_active_route('supplier.index') !!}>
+        <a class="nav-link" href="{{ route('supplier.index') }}"><i class="mdi mdi-format-list-numbers"></i> List</a>
+        </li>
+        <li class="nav-item" {!! is_active_route('supplier.create') !!}>
+        <a class="nav-link" href="{{ route('supplier.create') }}"><i class="mdi mdi-plus-circle"></i> New</a>
+        </li>
+    </ul>
+    </div>
+</li>

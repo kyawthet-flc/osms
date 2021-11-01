@@ -21,8 +21,8 @@ page[size="A4"] {
 }
 
 @page {
-    background: url('images/osms-small-icon-ts.png') no-repeat 0 100%;
-    background-image-resize: 3;
+    /* background: url('images/osms-small-icon-ts.png') no-repeat 0 100%; */
+    /* background-image-resize: 3; */
     /*background-image-resize: 6;*/
     header: html_pageheader;
     footer: html_footer;  

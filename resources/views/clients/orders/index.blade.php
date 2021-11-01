@@ -35,7 +35,7 @@
               @endif
             </td>
             <td> 
-              <a class="btn btn-sm mt-1 btn-outline-success" view-attr="view-item" href="{{ route('order.show', ['order' => $list,'code' => $list->code, 'customer_id' => $list->customer_id ]) }}">
+              <a class="btn btn-sm mt-1 btn-outline-success" loading-text="Getting Order Detail..."  view-attr="get-ajax-view" href="{{ route('order.show', ['order' => $list,'code' => $list->code, 'customer_id' => $list->customer_id ]) }}">
                 <i class="mdi mdi-eye"></i>
               </a><br/>
               <a class="btn mt-1 btn-sm btn-outline-warning" href="{{ route('order.create', ['code' => $list->code, 'customer_id' => $list->customer_id ]) }}">

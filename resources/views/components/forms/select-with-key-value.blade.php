@@ -6,7 +6,6 @@
             <span class="required-text-block">Required</span>
         @endif
     </label><br/>
-
   <select {{ $attributes }} class="form-control {{ $errors->has($name) ? 'is-invalid' : ''}} {{$class ?? null}}" id="{{ $name }}" name="{{ $name }}" 
         @if( $readOnly ) readonly="readonly" @endif
         @if( $disabled ) disabled="disabled" @endif

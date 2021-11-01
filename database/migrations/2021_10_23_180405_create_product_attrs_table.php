@@ -19,7 +19,10 @@ class CreateProductAttrsTable extends Migration
             $table->unsignedBigInteger('entity_id')->nullable();
             $table->string('attribute');
             $table->string('value');
+            $table->mediumText('additional')->nullable();
+            $table->mediumText('remark')->nullable();
             $table->timestamps();
+
         });
     }
 

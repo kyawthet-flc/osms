@@ -14,20 +14,21 @@ class OrderDetail extends Model
 
         static::created(function ($model) {
         	$model->toggleOrderRelation($model->quantity);
-            $model->updateParentOrder();
+            $model->updateOrderTotalPrice();
         });
         
         static::updated(function ($model) {
             $model->toggleOrderRelation();
-            $model->updateParentOrder();
+            $model->updateOrderTotalPrice();
         });
 
         static::deleting(function ($model) {
-            // $model->toggleOrderRelation($model->quantity);
             $subProduct = SubProduct::whereId($model->sub_product_id)->first();
             $subProduct->update(['quantity_left' => ($subProduct->quantity_left + $model->quantity)]);
-
-            $model->updateParentOrder();
+            $model->order->update([
+                'total_amount' => $model->order->total_amount - $model->sub_total_price,
+                'total_discount' => $model->order->total_discount - $model->total_discount
+            ]);
         });
     }
 
@@ -68,7 +69,7 @@ class OrderDetail extends Model
         $subProduct->update(['quantity_left' => $qtyLeft]);
     }
 
-    public function updateParentOrder()
+    public function updateOrderTotalPrice()
     {
         $this->order->update([
             'total_amount' => $this->order->orderDetails()->sum('sub_total_price'),

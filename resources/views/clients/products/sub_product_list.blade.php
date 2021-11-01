@@ -1,15 +1,14 @@
 <!-- PAGENO: OSMS-011 -->
 @extends('layouts.app')
 @section('content')
-<x-utils.card :attrs="['title' => '<b>'.$product->name.'</b> - Product Variations', 'backUrl' => (request('redirectUrl')?? route('product.index')) ]">
+<x-utils.card :attrs="['title' => '<b>'.$product->name.'</b> - Product Variations', 'backUrl' => route('product.edit', $product). '#variation-list' ]">
     <div class="row justify-content-center pt-3 pb-5">
-
         <div class="col-md-12 mb-3">
             <a class="btn btn-success"  href="{{ route('product.get_sub_product_form', 
                 ['sku' => $product->sku, 'redirectUrl' => current_url() ]) }}" edit-attr="edit-sub-product"
                  confirmationText="Are you sure to create?" 
                  data-micromodal-trigger="modal-1">
-            <i class="mdi mdi-plus-circle"></i> Add New Variation
+            <i class="mdi mdi-plus-circle"></i> Add Variation
             </a>
         </div>
 

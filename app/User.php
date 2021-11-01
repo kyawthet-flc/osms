@@ -90,6 +90,11 @@ class User extends Authenticatable
     public function shops()
     {
         return $this->hasMany(\App\Model\Client\Shop::class);
-    } 
+    }
+
+    public function suppliers()
+    {
+        return $this->hasMany(\App\Model\Client\Supplier::class);
+    }
 
 }

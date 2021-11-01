@@ -23,10 +23,12 @@ class Customer extends Model
     {
         return $this->belongsTo(District::class, 'dis_id');
     }
+    
     public function division()
     {
         return $this->belongsTo(Division::class, 'div_id');
     }
+
     public function getFullAddressAttribute()
     {
         // return "$this->address . '<br/>(' . $this->township->name . ' - '. $this->district->name .' - '.  $this->division->name . ')";

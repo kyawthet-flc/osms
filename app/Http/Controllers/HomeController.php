@@ -4,12 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use Illuminate\Http\Request;
-
-use App\Model\Task\Diac\DiacApplication;
-use App\Model\Task\Drc\DrcApplication;
-use App\Model\Task\Dlmc\DlmcApplication;
-use App\Model\Task\Onetime\OnetimeApplication;
-
+use App\Model\Contact;
 use App\Http\Requests\{ ChangePasswordRequest, UpdateProfileRequest }; 
 
 class HomeController extends Controller
@@ -67,9 +62,36 @@ class HomeController extends Controller
             return auth()->user()->update(['display_name' => $request->display_name ]);
         });
         if ( $isChanged ) {
-            return redirect()->back()->with('success', 'Profile Updated.');
+            return back()->with('success', 'Profile Updated.');
         }
-        return redirect()->back()->with('error', 'Error to update profile.');
+        return back()->with('error', 'Error to update profile.');
+    }
+
+    public function contact()
+    {
+        if( request()->ajax() ) {
+            return $this->jsonResponse('success', 'Contact Form Fetched.', url()->previous(),[
+                'template' =>  view('contact._form',['user' => auth()->user() ])->render()
+            ]);
+        }
+        return view('contact.index',['user' => auth()->user() ]);
+    }
+
+    public function saveContact(\App\Http\Requests\ContactRequest $request)
+    {
+        if ( Contact::create([
+            'user_id' => auth()->user()->id,
+            'name' => auth()->user()->name,
+            'email' => auth()->user()->email,
+            'subject' => $request->subject,
+            'body' => $request->body,
+            'priority_level' => $request->priority_level,
+        ]) ) {
+            return $this->jsonResponse('success', 'Successfully Sent.', url()->previous());
+        }
+
+        return $this->jsonResponse('error', 'Error to contact', url()->previous());
+
     }
 
 }

@@ -86,7 +86,7 @@ html,body,p,div,*,table,h1,h2,h3,h4,h5,h6,a,tr,th,td,thead,tbody {
 .existing-sub-product_image {
     /* background: red; */
     width: 90px !important;
-    border:1px solid #555;
+    border:1px dotted #4a4a4a;
     height: 36px;
     border-radius: 4px;
     float: left;
@@ -94,7 +94,7 @@ html,body,p,div,*,table,h1,h2,h3,h4,h5,h6,a,tr,th,td,thead,tbody {
     margin-right: 3px;
     position: relative;
     margin-bottom: 4px;
-    padding: 5px;
+    padding: 5px 1px 3px;
 }
 
 th {
@@ -110,6 +110,7 @@ th {
     margin-top: 3px;
     padding: 0 0 10px !important;
     background-color: #fafafa;
+    border: 1px solid #4a4a4a;
 }
 .nav .nav-item.dropdown .navbar-dropdown .dropdown-item, .navbar-nav .nav-item.dropdown .navbar-dropdown .dropdown-item {
     padding: 10px 13px !important;

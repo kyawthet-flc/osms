@@ -167,23 +167,9 @@ $(function($){
     });
 
     $('.magnific-popup-img').magnificPopup({
-        type: 'image'
+        // delegate: "img",
+        type: 'image',
     });
-
-    // $('.input-images').imageUploader();
-    // $('.input-images').imageUploader({
-    //     label: 'Drag & Drop files here or click to browse',
-    //     imagesInputName: 'files'
-    // });
-     
-    // $('.close-modal-box').on('click', function(){
-    //     // alert('s')
-    //     // var id = $(this).parents('div.micromodal-slide').attr('id');
-    //     // $('.modal.is-open').css({'display': 'none'});
-    //     // window.reload();
-    //     window.location.reload();
- 
-    // });
     
     if( $('div[data-upload-id="myUniqueUploadId"]').length > 0 ) {
     // new FileUploadWithPreview("myUniqueUploadId");
@@ -199,6 +185,23 @@ $(function($){
         // },
         presetFiles: existingImages || [],
     });
+    }
+
+    if( $('.summernote').length > 0 ) { 
+        $('.summernote').summernote({
+            height: 200,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['italic', 'bold', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                // ['insert', ['link']],
+                // ['view', ['codeview', 'help']],
+                ['insert', ['link', 'picture', 'video', 'hr', 'codeview']]
+            ],
+        });
     }
 
 })

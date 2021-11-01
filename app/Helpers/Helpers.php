@@ -65,6 +65,14 @@ if ( !function_exists("replace_space_with_dash") )
 	}
 }
 
+if ( !function_exists("remove_space") )
+{
+	function remove_space($str)
+	{
+		return preg_replace('/\ +/', '', $str);
+	}
+}
+
 if ( !function_exists("remove_dash") )
 {
 	function remove_dash($str)

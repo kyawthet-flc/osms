@@ -7,7 +7,7 @@
     </label>
     <textarea id="{{$id}}" 
         @if( $readOnly ) readonly="readonly" @endif
-        @if( $disabled ) disabled="disabled" @endif name="{{$name}}" placeholder="{{$placeholder}}" {{ $attributes->merge(['class' => 'form-control']) }}>{{$value}}</textarea>
+        @if( $disabled ) disabled="disabled" @endif name="{{$name}}" placeholder="{{$placeholder}}" {{ $attributes->merge(['class' => 'form-control ' . $class]) }}>{{$value}}</textarea>
 
     {!! $errors->first($name, '<div class="invalid-feedback d-block">:message</div>') !!}
     

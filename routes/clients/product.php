@@ -18,7 +18,18 @@ Route::prefix('product')->name('product.')->namespace('Client\Product')->group(f
 
     Route::get('product/{sku}/subProducts/list', 'SubProductController@list')->name('sub_product.list');
     Route::post('product/{sku}/subProduct/save/{subProduct?}', 'SubProductController@store')->name('sub_product.store');
-    // Route::delete('delete/{subProduct}', 'SubProductController@delete')->name('sub_product.delete');
     Route::delete('subProductImage/delete/{subProductImage}', 'SubProductController@deleteSubProductImage')->name('sub_product_image.delete');
     Route::delete('subProduct/delete/{subProduct}', 'SubProductController@deleteSubProduct')->name('sub_product.delete');
+
+    // Supplier
+    Route::get('productSupplyment/edit/{productSupplyment}', 'ProductSupplymentController@edit')->name('product_supplyment.edit');
+    Route::put('productSupplyment/update/{productSupplyment}', 'ProductSupplymentController@update')->name('product_supplyment.update');    
+    Route::get('productSupplyment/create', 'ProductSupplymentController@create')->name('product_supplyment.create');
+    Route::post('productSupplyment/store', 'ProductSupplymentController@store')->name('product_supplyment.store');
+    Route::delete('productSupplyment/delete/{productSupplyment}', 'ProductSupplymentController@delete')->name('product_supplyment.delete');
+
+    // Product Size and Color
+    Route::get('sizeColor/loadSizeColor', 'ActionController@loadSizeColor')->name('size_color.initial_load');
+    Route::post('sizeColor/save', 'ActionController@saveSizeColor')->name('size_color.save');
+    Route::delete('sizeColor/delete/{productAttr}', 'ActionController@deleteSizeColor')->name('size_color.delete');
 });

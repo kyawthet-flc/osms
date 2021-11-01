@@ -4,7 +4,7 @@ namespace App\Model\Client;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Model\ProductSetup\ProductType;
+use App\Model\ProductSetup\{ProductType, ProductAttr};
 
 class Product extends Model
 {
@@ -45,14 +45,29 @@ class Product extends Model
         return $this->hasMany(SubProduct::class);
     }
 
-    public function orders()
+    public function suppliers()
     {
-        return $this->hasMany(Order::class, 'og', 'order_id');
+        return $this->hasMany(Supplier::class);
     }
+
+    // public function orders()
+    // {
+    //     return $this->hasMany(Order::class, 'og', 'order_id');
+    // }
 
     public function orderDetails()
     {
         return $this->hasMany(OrderDetail::class);
+    }
+
+    public function productSupplyments()
+    {
+        return $this->hasMany(ProductSupplyment::class);
+    }
+
+    public function productAttrs()
+    {
+        return $this->hasMany(ProductAttr::class, 'entity_id', 'id')->whereEntityName('products');
     }
 
     public function createSkuCode()

@@ -36,22 +36,27 @@ class SubProductController extends Controller
         $product = Product::whereSku($sku)->first();        
         $productAttrs = ProductAttr::whereEntityName('product_type')->whereEntityId($product->product_type_id)->get();
 
-        return $this->jsonResponse('success', 'Successfully Fetched.', '#',[
-            'form' => view($this->baseViewPath . '_sub_product_form',[
-                'product' => $product,
-                'subProduct' => $subProduct? $subProduct:new SubProduct,
-                'action' => route('product.sub_product.store',['sku' => $sku, 'subProduct' => $subProduct]), 
-                'method' => 'post',
-                'submitLabel' => $subProduct? 'Update':'Create', 
-                'confirmationText' => $subProduct? 'Are you sure to update?': 'Are you sure to create?',
-                'sizes' => $productAttrs->where('attribute', 'Size')->pluck('value'),
-                'colors' => $productAttrs->where('attribute', 'Color')->pluck('value')
-            ])->render(),
-            'assets' => array(
-                'js' => js_assets('secondary'),
-                'css' => []
-            )
-        ]);
+        $data = [
+            'product' => $product,
+            'subProduct' => $subProduct? $subProduct:new SubProduct,
+            'action' => route('product.sub_product.store',['sku' => $sku, 'subProduct' => $subProduct]), 
+            'method' => 'post',
+            'submitLabel' => $subProduct? 'Update':'Create', 
+            'confirmationText' => $subProduct? 'Are you sure to update?': 'Are you sure to create?',
+            'sizes' => $productAttrs->where('attribute', 'Size')->pluck('value'),
+            'colors' => $productAttrs->where('attribute', 'Color')->pluck('value')
+        ];
+
+        if ( request()->ajax() ) {
+            return $this->jsonResponse('success', 'Successfully Fetched.', '#',[
+                'form' => view($this->baseViewPath . '_sub_product_form', $data)->render(),
+                'assets' => array(
+                    'js' => js_assets('secondary'),
+                    'css' => []
+                )
+            ]);
+        }
+        return view($this->baseViewPath . 'sub_product_form', $data);
     }
 
     public function store(SubProductRequest $request, $sku, SubProduct $subProduct=null)
