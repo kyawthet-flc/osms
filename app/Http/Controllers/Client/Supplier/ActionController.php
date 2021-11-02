@@ -22,7 +22,7 @@ class ActionController extends Controller
     public function create()
     {
         return $this->toView('create',[
-            'customer' => new Supplier,
+            'supplier' => new Supplier,
             'shops' => auth()->user()->shops->pluck('name', 'id'),
             'townships' => (new Township)->compiledTsDisDiv()
         ]);
