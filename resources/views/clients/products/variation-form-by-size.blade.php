@@ -5,7 +5,7 @@
         $subProduct = $product->SubProducts()->whereColor($valColor)->whereSize($selectedSize)->first()?? $subProduct
         @endphp
         <div class="row mt-1 mb-2 p-3" style="border:1px solid red;height: auto;border-radius: 5px;">
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="form-group variation-list-form-group">
                     <label>Size and Color/ {{ $selectedSize }} - {{ $valColor }}/ {{ $subProduct->color }}</label>
                     <div class="row">
