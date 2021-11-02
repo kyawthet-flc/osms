@@ -33,7 +33,7 @@ class ActionController extends Controller
     public function store(CustomerRequest $request)
     {
         if (  $customer = Customer::create( $this->prepareParams($request) ) ) {            
-            $data = ['customer_id' => $customer->id] + request('urlSegments')?json_decode(request('urlSegments'), true): [];
+            $data = ['customer_id' => $customer->id] + (request('urlSegments')?json_decode(request('urlSegments'), true): []);
             $urlObj = http_build_query($data);
             return $this->jsonResponse('success', 'Successfully created shop.', request('redirectUrl')?(request('redirectUrl') . '?'. $urlObj ):url()->previous());
         }
