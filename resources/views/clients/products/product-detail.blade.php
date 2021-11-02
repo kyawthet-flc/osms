@@ -7,4 +7,4 @@
 </div>
 </div>
 
-@include('clients.products._sub_product_list')
+@include('clients.products.product-variation-list')

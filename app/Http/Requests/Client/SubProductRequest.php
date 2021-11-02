@@ -24,24 +24,25 @@ class SubProductRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'color' => 'required',
-            'size' => 'required',
-
-            // 'quantity_bought' => 'required|numeric',
-            'quantity_avaiable' => 'required|numeric',
-            // 'quantity_left' => 'required',
-            'unit' => 'required',
-            
-            'price_bought' => 'required|numeric',            
-            'price_sold' => 'required|numeric',
-
-            'desc' => 'nullable'
+            'variations.*.color' => 'required',
+            'variations.*.size' => 'required',
+            'variations.*.quantity_avaiable' => 'required|numeric',
+            'variations.*.unit' => 'nullable',            
+            'variations.*.price_bought' => 'required|numeric',            
+            'variations.*.price_sold' => 'required|numeric',
+            'variations.*.desc' => 'nullable'
         ];
 
-        foreach(request()->file('files')??[] as $key => $file) {
-            $rules['files.'.$key] = ['mimes:jpg,jpeg,png,gif,svg'];
-        }
+        // foreach(request()->file('contactFiles')??[] as $key => $file) {
+        //     $rules['contactFiles.'.$key] = 'nullable|mimes:pdf,png,jpeg,jpg';
+        // }
+
         return $rules;
+
+        // foreach(request()->file('files')??[] as $key => $file) {
+        //     $rules['files.'.$key] = ['mimes:jpg,jpeg,png,gif,svg'];
+        // }
+        // return $rules;
     }
 
     public function messages()

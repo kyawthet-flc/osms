@@ -175,6 +175,7 @@ $(function(){
 $(function(){
     var enableConfirmation = false;
     $('a[edit-attr="edit-sub-product"]').on('click', function(e){
+
         e.preventDefault();        
         var self = $(this), 
             confirmationText = $(this).attr('confirmationText');
@@ -193,16 +194,10 @@ $(function(){
                     ElementHelpers.enableElement(self);
                     ElementHelpers.hideOverlay();
 
-                    // $(document).find('.display-detail-on-xhr').html(res.data.form);
                     var modalContainer = $('.modal-container');
                     modalContainer.find('.display-detail-on-xhr').html(res.data.form);
                     modalContainer.modal("show")
-
-                    $('script[loaded="initial"]').remove();
-                    $('script[loaded="secondary"]').remove();
-                    $('head').append(res.data.assets.js);
                 }
-                // AjaxSuccessHandler(res, self);
             }).catch(function(err, xhr, text){
                 // AjaxErrorHandler(err, xhr, text, self);
             });
@@ -412,10 +407,45 @@ function OrderProductVariation(ajaxUrl) {
     }            
 }
 
+function loadVariationFormBySize(self){
+    if( self.val() =='') return false;
 
+    var productVariationFormWrapper = $(document).find('.product-variation-form-wrapper'),
+    productVariationFormLoaderText = $(document).find('.product-variation-form-loader-text');
+        
+    ElementHelpers.disableElement(self);
+    ElementHelpers.displayOverlay("Please wait...");
+    productVariationFormLoaderText.show();
 
-// PAGENO: OSMS-019
-// PAGENO: OSMS-026
+    $.ajax({
+        url: self.attr('href'), 
+        data: {
+            _token: $('meta[name="csrf-token"]').attr('content')
+        },
+    }).then(function(res){
+        if( res.status === 'success') {
+            productVariationFormWrapper.html(res.data.form);
+        } else {
+            Swal.fire({html: response.msg, confirmButtonColor: '#3085d6', icon: 'error'});
+        }
+        ElementHelpers.enableElement(self);
+        ElementHelpers.hideOverlay();
+        productVariationFormLoaderText.hide();
+
+    }).catch(function(err, xhr, text){
+        AjaxErrorHandler(err, xhr, text, self);
+        productVariationFormLoaderText.hide();
+    });
+  
+}
+
+$(function(){
+    $(document).on('change', 'input[name="selected_size"]', function(e){
+        e.preventDefault();
+        loadVariationFormBySize( $(this) );
+    }); 
+});
+
 $(function(){
  
     $('a[view-attr="get-ajax-view"]').on('click', function(e){
@@ -494,6 +524,7 @@ $(function(){
         }).then(function(res){
             if( 'success' === res.status) {
                 displaySizeColor(res.data.sizeTemplate, res.data.colorTemplate);
+                loadMagnificPopup();
             }
         }).catch(function(err, xhr, text){
             AjaxErrorHandler(err, xhr, text, self);
@@ -505,16 +536,17 @@ $(function(){
     if( hasImage > 0 ) {
         initialLoadProductSizeColor($('input[name="shouldDisplaySizeColor"]').val());        
     }
-
-    document.getElementById('colorId').onchange = function() {
- 
-        var file = document.getElementById('colorId').files[0];
-        var privew = document.getElementById('color-image-preview');
-        if (file) {
-            var fileUrl = URL.createObjectURL(file);
-            privew.src = fileUrl;
-            privew.setAttribute('href', fileUrl);
-            privew.style.display = 'block';
+    if ( document.getElementById('colorId') ) {
+        document.getElementById('colorId').onchange = function() {
+    
+            var file = document.getElementById('colorId').files[0];
+            var privew = document.getElementById('color-image-preview');
+            if (file) {
+                var fileUrl = URL.createObjectURL(file);
+                privew.src = fileUrl;
+                privew.setAttribute('href', fileUrl);
+                privew.style.display = 'block';
+            }
         }
     }
  
@@ -577,6 +609,8 @@ $(function(){
             displaySizeColor(res.data.sizeTemplate, res.data.colorTemplate);
             ElementHelpers.enableElement(self);
             ElementHelpers.hideOverlay();
+
+            loadMagnificPopup();
             
         }).catch(function(err, xhr, text){
             if( hasImage ) {

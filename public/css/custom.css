@@ -121,7 +121,7 @@ th {
     background-color: #fafafa;
 }
 .card .card-body {
-    padding-top: 20px !important;
+    padding-top: 4px !important;
 }
 .card .card-header {
     padding: 10px;
@@ -157,4 +157,27 @@ th {
     border-color: #4a4a4a !important;
     background-color: #4a4a4a !important;
     box-shadow: none !important;
+    width: auto;
+}
+
+.one-pixel-padding {
+    padding:  1px;
+}
+
+.variation-list-form-group {
+    margin-bottom: 4px !important;
+}
+
+.jsgrid .jsgrid-table td, .jsgrid .jsgrid-table th, .table td, .table th {
+    padding: 5px 3px 5px 10px;
+    min-height: 1px;
+    height: auto;
+    vertical-align: text-top;
+}
+
+.jsgrid .jsgrid-table td, .table td {
+    padding: 5px 3px 5px 10px;
+    min-height: 1px;
+    height: auto;
+    vertical-align: text-top;
 }

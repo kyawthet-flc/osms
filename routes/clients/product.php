@@ -21,6 +21,8 @@ Route::prefix('product')->name('product.')->namespace('Client\Product')->group(f
     Route::delete('subProductImage/delete/{subProductImage}', 'SubProductController@deleteSubProductImage')->name('sub_product_image.delete');
     Route::delete('subProduct/delete/{subProduct}', 'SubProductController@deleteSubProduct')->name('sub_product.delete');
 
+    Route::get('variationFormBySize/{sku}/{subProduct?}', 'SubProductController@getVariationSizeColor')->name('sub_product.variation_form_by_size');
+
     // Supplier
     Route::get('productSupplyment/edit/{productSupplyment}', 'ProductSupplymentController@edit')->name('product_supplyment.edit');
     Route::put('productSupplyment/update/{productSupplyment}', 'ProductSupplymentController@update')->name('product_supplyment.update');    

@@ -1,6 +1,6 @@
-<div class="row p-2">
+<div class="row p-1">
     <div class="col-md-12">
-        <b>Product Suppliers' Info</b> 
+        <label for=""><b>Product Suppliers' Info</b></label>
         <a ajax-type="supplier-form" class="text-success" href="{{ route('product.product_supplyment.create',['productId' => $product->id ]) }}">
             <i class="mdi mdi-plus-box"></i>
         </a> 
@@ -9,7 +9,7 @@
         $product->productSupplyments->load(['supplier', 'supplier.division', 'supplier.district', 'supplier.township'])
     @endphp
     @foreach($product->productSupplyments as $k => $psupplyment)
-    <div class="col-md-6 p-3 mt-1" style="border:1px dotted #414141;">
+    <div class="col-md-12 mt-1">
         <h5>
             {{ $k + 1}}. {{ $psupplyment->supplier->name }}
             

@@ -42,14 +42,12 @@
               <!-- <div class="row mb-3">
                 <div class="col-md-12">Notice BOX</div>
               </div> -->
-              <!-- For displaying detail -->  
               <x-utils.bootstrap-model-wrapper>
                   <div class="row" style="padding: 3px 10px;">
                     <!-- <div class="col-md-12"><h4 class="header-title pb-3 pt-3"></h4></div> -->
                     <div class="col-md-12 display-detail-on-xhr"></div>
                 </div>
               </x-utils.bootstrap-model-wrapper>
-
                 @include('layouts.message')                
                 @yield('content')
               </div>

@@ -148,9 +148,13 @@ class ActionController extends Controller
                 $tempTpl = '<span class="badge badge-dark mr-1 delete-size-color-wrapper">'.($attr->value).'<a ajax-type="delete-size-color" class="p-1 pr-0 text-danger" href="'.route('product.size_color.delete',['productAttr' => $attr->id]).'"><i class="mdi mdi-delete"></i></a></span>';
                 $sizeTemplate .= $tempTpl;
             } else {
-                $encrptedImg = base64_encode($attr->image->decryptFile());
-                $tempTpl = '<span class="badge badge-dark mr-1 delete-size-color-wrapper"><img class="magnific-popup-img" 
-                style="width: 15px;height: 15px" src="data:image/'.strtolower($attr->image->file_extension).';base64,'.$encrptedImg.'" href="data:image/'.strtolower($attr->image->file_extension).';base64,'.$encrptedImg.'" alt="Image" />&nbsp;&nbsp;&nbsp;'.($attr->value).'<a ajax-type="delete-size-color" class="p-1 pr-0 text-danger" href="'.route('product.size_color.delete',['productAttr' => $attr->id]).'"><i class="mdi mdi-delete"></i></a></span>';
+                $img = '';
+                if( $attr->image ) {
+                    $encrptedImg = base64_encode($attr->image->decryptFile());
+                    $img = '<img class="magnific-popup-img"
+                    style="width: 15px;height: 15px" src="data:image/'.strtolower($attr->image->file_extension).';base64,'.$encrptedImg.'" href="data:image/'.strtolower($attr->image->file_extension).';base64,'.$encrptedImg.'" alt="Image" />';
+                }
+                $tempTpl = '<span class="badge badge-dark mr-1 delete-size-color-wrapper">'.$img.'&nbsp;&nbsp;&nbsp;'.($attr->value).'<a ajax-type="delete-size-color" class="p-1 pr-0 text-danger" href="'.route('product.size_color.delete',['productAttr' => $attr->id]).'"><i class="mdi mdi-delete"></i></a></span>';
                 $colorTemplate .= $tempTpl;
             }
         }

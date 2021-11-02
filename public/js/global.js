@@ -1,6 +1,12 @@
 
     //  "use strict";
 
+    function loadMagnificPopup() {
+        $('.magnific-popup-img').magnificPopup({
+            type: 'image',
+        });
+    }
+
      var ElementHelpers = {
         displayOverlay: function(msg) {
             var overlay = $('<div class="form-overlay" style="text-align: center;padding-top: 180px;top: 0;bottom: 0;left: 0;right: 0;background-color: rgba(255,255,255,0.7) !important;position: fixed;z-index: 30000;overflow: hidden;"><div class="spinner-border" style="width: 3rem; height: 3rem;" role="status"><span class="sr-only"></span></div><br/><span style="font-size: 15px;">'+(msg?msg: 'Loading...')+'</span></div>');
@@ -18,8 +24,8 @@
                 });
             }
 
-            if ( typeof(element) === 'object' ) {
-            element.removeAttr('disabled');                        
+            if ( element instanceof jQuery ) {
+              element.removeAttr('disabled');                        
             }
             return;
         },
@@ -27,12 +33,12 @@
             
             if ( $.isArray(element) ) {
                 $.each(element, function(key, obj){
-                obj.attr('disabled', true);
+                   obj.attr('disabled', true);
                 });
             }
 
-            if ( typeof(element) === 'object' ) {
-            element.attr('disabled', true);                  
+            if ( element instanceof jQuery ) {
+                element.attr('disabled', true);                  
             }
             return;
         },
@@ -100,10 +106,17 @@
 
             for (var e in err.responseJSON.errors) {
                 var l = e.split(".")[0];
+
                 if (void 0 !== err.responseJSON.errors[e][0]) {
                     var B = $(document).find("#" + l).parents("div.seperate-validation-wrapper").children("div.validation-msg-holder");
                     var errMsg =  err.responseJSON.errors[e][0];
-                    B.length > 0 ? $('<span style="display: block;" class="ajax-validation-error">' + errMsg + "</span>").appendTo(B) : $('<span style="display: block;" class="ajax-validation-error">' + errMsg + "</span>").appendTo($('[name="' + l + '"]').parent("div"))
+                    if ( B.length > 0 ) {
+                        $('<span style="display: block;" class="ajax-validation-error">' + errMsg + "</span>").appendTo(B) 
+                    } else if ( $(document).find('[name="' + l + '"]').length > 0 ) {
+                        $('<span style="display: block;" class="ajax-validation-error">' + errMsg + "</span>").appendTo($(document).find('[name="' + l + '"]').parent("div"))
+                    } else {
+                        $('<span style="display: block;" class="ajax-validation-error">' + ( errMsg.replace(e, e.split('.').pop()) ) + "</span>").appendTo($(document).find('[nameHolder="' + e + '"]').parent("div"))
+                    }
                 }
             }
         }
@@ -166,10 +179,7 @@ $(function($){
         // }
     });
 
-    $('.magnific-popup-img').magnificPopup({
-        // delegate: "img",
-        type: 'image',
-    });
+    loadMagnificPopup();
     
     if( $('div[data-upload-id="myUniqueUploadId"]').length > 0 ) {
     // new FileUploadWithPreview("myUniqueUploadId");
