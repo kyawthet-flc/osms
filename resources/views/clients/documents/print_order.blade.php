@@ -9,10 +9,11 @@
             <tr>
                 @if( $order->customer->shop->logo )
                 @php 
-                  $encrptedImg = base64_encode(App\Model\File::find($order->customer->shop->logo)->decryptFile())
+                  $file = App\Model\File::find($order->customer->shop->logo);
+                  $encrptedImg = base64_encode($file->decryptFile())
                 @endphp>
                 <td class="text-left" width="25px">
-                    <img src="data:image/png;base64,{{ $encrptedImg }}" alt="logo" width='130px' height='85px'>
+                    <img src="data:image/{{ $file->file_extension }};base64,{{ $encrptedImg }}" alt="logo" width='130px' height='85px'>
                 </td>
                 @endif
                 <td class="align-center text-left" width="85%">

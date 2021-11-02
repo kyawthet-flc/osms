@@ -87,14 +87,13 @@ class OrderPdf
 
     public function generate($string = null)
     {
-        // $arrContextOptions=array(
-        //     "ssl"=>array(
-        //         "verify_peer"=>false,
-        //         "verify_peer_name"=>false,
-        //     ),
-        // );  
-        // $stylesheet = file_get_contents(asset('css/documents/order-pdf.css'),  false, stream_context_create($arrContextOptions));
-        $stylesheet = file_get_contents(asset('css/documents/order-pdf.css'));
+        $arrContextOptions=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        );  
+        $stylesheet = file_get_contents(asset('css/documents/order-pdf.css'),  false, stream_context_create($arrContextOptions));
         $this->mpdf->WriteHTML($stylesheet, \Mpdf\HTMLParserMode::HEADER_CSS); 
         $this->mpdf->WriteHTML($this->template, 2);
         $this->mpdf->Output($string);
