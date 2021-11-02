@@ -20,7 +20,7 @@
             <td>{!! $list->code !!}</td>
             <td>{!! $list->customer->name !!}<br/>Ph No. {!! $list->customer->phone !!}</td>
             <td>{{ $list->total_amount + $list->deli_fee }} ({!! $list->total_amount !!} + {{ $list->deli_fee }})</td>
-            <td>{!! $list->paid_status !!}<br/>({{ $paymentTypes[$list->payment_type_id] }})</td>
+            <td>{!! $list->paid_status !!}<br/>({{ $paymentTypes[$list->payment_type_id]?? "NA" }})</td>
             <td>{{ $list->status }}</td>
             <td>{!! $list->ordered_at !!}</td>
             <!-- <td>{!! $list->delivered_at !!}</td> -->
