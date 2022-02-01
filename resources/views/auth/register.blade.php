@@ -93,6 +93,11 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-12 text-left">
+                               <p>Already have account?  <a href="{{ route('login') }}"><b>{{ __('Login') }}</b></a></p>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
